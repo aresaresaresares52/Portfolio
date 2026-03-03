@@ -36,19 +36,19 @@ const handlePrint = () => {
 
             <div class="flex-grow">
               <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-2">ARES POLO</h1>
-              <p class="text-blue-400 font-bold text-lg mb-6 uppercase tracking-[0.2em]">Diseño & Tecnologías Creativas</p>
+              <p class="text-brand font-bold text-lg mb-6 uppercase tracking-[0.2em]">Diseño & Tecnologías Creativas</p>
               
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-sm text-gray-400">
                 <div class="flex items-center gap-2 justify-center md:justify-start">
-                  <Mail :size="14" class="text-blue-400" />
+                  <Mail :size="14" class="text-brand" />
                   <span>dteccccares@gmail.com</span>
                 </div>
                 <div class="flex items-center gap-2 justify-center md:justify-start">
-                  <MapPin :size="14" class="text-blue-400" />
+                  <MapPin :size="14" class="text-brand" />
                   <span>Valencia, España</span>
                 </div>
                 <div class="flex items-center gap-2 justify-center md:justify-start">
-                  <Phone :size="14" class="text-blue-400" />
+                  <Phone :size="14" class="text-brand" />
                   <span>+34 000 000 000</span>
                 </div>
                 <div class="flex items-center gap-6 justify-center md:justify-start mt-2">
@@ -64,7 +64,7 @@ const handlePrint = () => {
           <!-- Formación Académica -->
           <section>
             <div class="flex items-center gap-4 mb-8">
-              <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center">
+              <div class="w-10 h-10 bg-brand/10 text-brand rounded-xl flex items-center justify-center">
                 <GraduationCap :size="20" />
               </div>
               <h2 class="text-2xl font-black text-gray-900 tracking-tight uppercase">Formación Académica</h2>
@@ -73,11 +73,11 @@ const handlePrint = () => {
             <div class="space-y-10 pl-4 border-l-2 border-gray-100 ml-5">
               <!-- UPV -->
               <div class="relative">
-                <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-white border-4 border-blue-600"></div>
+                <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-white border-4 border-brand"></div>
                 <div>
                   <div class="flex flex-col md:flex-row md:justify-between items-start mb-2 gap-1">
                     <h3 class="text-xl font-bold text-gray-900">Grado en Diseño y Tecnologías Creativas</h3>
-                    <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-full">2023 - Presente</span>
+                    <span class="px-3 py-1 bg-brand/10 text-brand text-xs font-bold rounded-full">2023 - Presente</span>
                   </div>
                   <p class="text-gray-600 font-semibold mb-3">Universidad Politécnica de Valencia (UPV)</p>
                   <p class="text-gray-500 leading-relaxed italic">
@@ -94,7 +94,7 @@ const handlePrint = () => {
                     <h3 class="text-xl font-bold text-gray-900">Bachillerato de Ciencias y Tecnología</h3>
                     <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-full">Finalizado</span>
                   </div>
-                  <p class="text-gray-500 leading-relaxed font-medium">Nota de acceso a la universidad de <span class="text-blue-600 font-bold">12,98 / 14</span>.</p>
+                  <p class="text-gray-500 leading-relaxed font-medium">Nota de acceso a la universidad de <span class="text-brand font-bold">12,98 / 14</span>.</p>
                 </div>
               </div>
             </div>
@@ -103,7 +103,7 @@ const handlePrint = () => {
           <!-- Experiencia y Proyectos -->
           <section>
             <div class="flex items-center gap-4 mb-8">
-              <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center">
+              <div class="w-10 h-10 bg-brand/10 text-brand rounded-xl flex items-center justify-center">
                 <Briefcase :size="20" />
               </div>
               <h2 class="text-2xl font-black text-gray-900 tracking-tight uppercase">Experiencia y Proyectos</h2>
@@ -112,14 +112,14 @@ const handlePrint = () => {
             <div class="space-y-10 pl-4 border-l-2 border-gray-100 ml-5">
               <!-- Japón -->
               <div class="relative">
-                <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-white border-4 border-purple-600"></div>
+                <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-white border-4 border-brand"></div>
                 <div>
                   <div class="flex flex-col md:flex-row md:justify-between items-start mb-2 gap-1">
                     <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
-                       <Globe :size="18" class="text-purple-600" />
+                       <Globe :size="18" class="text-brand" />
                        Experiencia Internacional: Osaka English House
                     </h3>
-                    <span class="px-3 py-1 bg-purple-50 text-purple-600 text-xs font-bold rounded-full">Verano 2025</span>
+                    <span class="px-3 py-1 bg-brand/10 text-brand text-xs font-bold rounded-full">Verano 2025</span>
                   </div>
                   <p class="text-gray-600 font-semibold mb-3">Osaka, Japón</p>
                   <p class="text-gray-500 leading-relaxed">
@@ -148,7 +148,7 @@ const handlePrint = () => {
           <!-- Otras habilidades -->
           <section>
             <div class="flex items-center gap-4 mb-8">
-              <div class="w-10 h-10 bg-green-50 text-green-600 rounded-xl flex items-center justify-center">
+              <div class="w-10 h-10 bg-brand/10 text-brand rounded-xl flex items-center justify-center">
                 <Award :size="20" />
               </div>
               <h2 class="text-2xl font-black text-gray-900 tracking-tight uppercase">Cualidades Clave</h2>

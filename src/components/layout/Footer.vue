@@ -12,12 +12,12 @@ const socialLinks = [
 </script>
 
 <template>
-  <footer class="bg-gray-50 border-t border-gray-100 py-12">
+  <footer class="bg-black border-t border-white/5 py-12">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center gap-8">
         <div>
-          <h2 class="text-xl font-bold text-gray-900 mb-2">ARES<span class="text-blue-600">POLO</span></h2>
-          <p class="text-gray-500 text-sm">Diseño versatil e interdisciplinar</p>
+          <h2 class="text-xl font-bold text-white mb-2">ARES<span class="text-brand">POLO</span></h2>
+          <p class="text-white/40 text-sm font-light">Diseño versátil e interdisciplinar</p>
         </div>
 
         <div class="flex items-center gap-6">
@@ -25,7 +25,7 @@ const socialLinks = [
             v-for="link in socialLinks" 
             :key="link.name" 
             :href="link.href"
-            class="text-gray-400 hover:text-blue-600 transition-colors"
+            class="text-white/40 hover:text-brand transition-all hover:scale-110"
             target="_blank"
             rel="noopener noreferrer"
             :aria-label="link.name"
@@ -35,7 +35,7 @@ const socialLinks = [
         </div>
       </div>
 
-      <div class="mt-8 pt-8 border-t border-gray-200 text-center text-sm text-gray-400">
+      <div class="mt-8 pt-8 border-t border-white/5 text-center text-xs text-white/20 tracking-widest uppercase">
         &copy; {{ currentYear }} Todos los derechos reservados.
       </div>
     </div>

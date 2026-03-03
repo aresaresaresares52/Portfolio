@@ -1,112 +1,82 @@
 <script setup lang="ts">
-import { Sparkles, ChevronDown, ExternalLink, ArrowRight } from 'lucide-vue-next'
+import { ArrowRight } from 'lucide-vue-next'
 import { projects } from '@/data/projects'
 </script>
 
 <template>
-  <div class="min-h-screen">
-    <!-- Hero Section -->
-    <div class="relative min-h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden">
-      <!-- Subtle Background Pattern -->
-      <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
-        <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="dotPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-              <circle cx="2" cy="2" r="1" fill="currentColor" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#dotPattern)" />
-        </svg>
+  <div class="bg-black text-white">
+    <!-- Hero Section / "La Portada" -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+      <!-- Background Glows (Sutiles para dar profundidad al glitch) -->
+      <div class="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-brand/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] bg-brand/5 rounded-full blur-[100px] pointer-events-none"></div>
+      
+      <!-- Video Logo Container -->
+      <div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+        <video 
+          autoplay 
+          loop 
+          muted 
+          playsinline
+          class="w-full h-full object-contain mix-blend-screen opacity-90 transition-opacity duration-1000 -translate-y-16"
+        >
+          <source src="/assets/videos/logofinal.webm" type="video/webm">
+          Tu navegador no soporta vídeos WebM con transparencia.
+        </video>
       </div>
 
-      <!-- Background Orbs -->
-      <div class="absolute top-1/4 -left-20 w-96 h-96 bg-blue-400/20 rounded-full blur-[100px] pointer-events-none"></div>
-      <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-400/20 rounded-full blur-[100px] pointer-events-none"></div>
+      <!-- Sutil Overlay de degradado -->
+      <div class="absolute inset-0 z-[1] bg-gradient-to-b from-black/20 via-transparent to-black pointer-events-none"></div>
 
+      <!-- Contenedor para futuro contenido -->
       <div class="container mx-auto px-4 relative z-10 text-center">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold mb-6 animate-bounce">
-          <Sparkles :size="14" />
-          <span>by Ares Polo</span>
-        </div>
-        
-        <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 tracking-tight">
-          Diseño <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">Creativo</span> & <br />
-          Desarrollo Web.
-        </h1>
-        
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Especializado en crear experiencias digitales interactivas que combinan estética premium con tecnología de vanguardia.
-        </p>
       </div>
 
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400 animate-pulse">
-        <span class="text-xs font-medium uppercase tracking-widest text-gray-600">Ver mis trabajos</span>
-        <ChevronDown :size="20" />
+      <!-- Indicador de Scroll -->
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-white/30 z-20">
+        <span class="text-[10px] uppercase tracking-[0.3em] font-medium">Scroll</span>
+        <div class="w-[1px] h-12 bg-gradient-to-b from-brand to-transparent"></div>
       </div>
-    </div>
+    </section>
 
     <!-- Projects Section -->
-    <section class="py-24 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+    <section id="projects" class="py-32 bg-[#050505]">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
           <div class="max-w-2xl">
-            <h2 class="text-4xl font-black text-gray-900 mb-4 tracking-tight">Proyectos Seleccionados</h2>
-            <p class="text-lg text-gray-500">Una selección de mis trabajos más recientes en diseño gráfico, fotografía y branding.</p>
+            <h2 class="font-serif text-4xl md:text-5xl text-white mb-6">Trabajos Seleccionados</h2>
+            <p class="font-sans text-lg text-white/40 font-light">Explora una selección curada de proyectos donde el diseño y la tecnología convergen.</p>
           </div>
-          <router-link 
-            to="/projects" 
-            class="group flex items-center gap-2 text-blue-600 font-bold hover:underline"
-          >
-            Ver todos los proyectos
-            <ArrowRight :size="18" class="group-hover:translate-x-1 transition-transform" />
-          </router-link>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           <div 
             v-for="project in projects.slice(0, 3)" 
             :key="project.id" 
-            class="group bg-white rounded-3xl overflow-hidden border border-gray-100 transition-all hover:shadow-2xl hover:-translate-y-1"
+            class="group relative"
           >
-            <!-- Project Image -->
-            <div class="aspect-[4/3] overflow-hidden relative">
-              <img 
-                :src="project.image" 
-                :alt="project.title"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <router-link 
-                  :to="`/projects/${project.id}`"
-                  class="bg-white text-gray-900 p-4 rounded-full shadow-lg hover:bg-blue-600 hover:text-white transition-colors"
-                >
-                  <ExternalLink :size="20" />
-                </router-link>
+            <!-- Card Content Wrapper -->
+            <div class="bg-[#0a0a0a] rounded-[2rem] overflow-hidden border border-white/5 transition-all duration-500 hover:border-brand/40 hover:shadow-[0_20px_50px_-20px_rgba(255,0,0,0.3)]">
+              <!-- Image -->
+              <div class="aspect-[4/5] overflow-hidden relative">
+                <img 
+                  :src="project.image" 
+                  :alt="project.title"
+                  class="w-full h-full object-cover grayscale opacity-60 transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-0 group-hover:opacity-100"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                
+                <div class="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <span class="text-brand text-xs font-bold uppercase tracking-widest mb-2 block">{{ project.category }}</span>
+                    <h3 class="text-2xl font-bold text-white mb-4">{{ project.title }}</h3>
+                    <router-link 
+                      :to="`/projects/${project.id}`"
+                      class="inline-flex items-center gap-2 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity delay-100"
+                    >
+                      Ver detalle <ArrowRight :size="14" />
+                    </router-link>
+                </div>
               </div>
-            </div>
-
-            <!-- Project Info -->
-            <div class="p-6">
-              <div class="flex items-center gap-2 mb-3">
-                <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
-                  {{ project.category }}
-                </span>
-                <span class="text-xs text-gray-400 font-medium">{{ project.date }}</span>
-              </div>
-              <h2 class="text-xl font-bold text-gray-900 mb-2 truncate group-hover:text-blue-600 transition-colors">
-                {{ project.title }}
-              </h2>
-              <p class="text-gray-500 text-sm line-clamp-2 mb-6">
-                {{ project.description }}
-              </p>
-              
-              <router-link 
-                :to="`/projects/${project.id}`"
-                class="flex items-center justify-between text-sm font-bold text-gray-900 hover:text-blue-600 transition-colors"
-              >
-                Saber más
-                <ArrowRight :size="16" />
-              </router-link>
             </div>
           </div>
         </div>
@@ -114,6 +84,3 @@ import { projects } from '@/data/projects'
     </section>
   </div>
 </template>
-
-<style scoped>
-</style>

@@ -1,110 +1,123 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Menu, X, Home, Briefcase, User, Mail, FileText } from 'lucide-vue-next'
+import { 
+  Home, 
+  Briefcase,
+  User, 
+  Mail, 
+  FileText,
+  Menu,
+  X
+} from 'lucide-vue-next'
+import { Button } from '@/components/ui/button'
 
-const isMenuOpen = ref(false)
+const isMobileMenuOpen = ref(false)
 
-const navItems = [
-  { name: 'Inicio', path: '/', icon: Home },
-  { name: 'Trabajos', path: '/projects', icon: Briefcase },
-  { name: 'Sobre Mí', path: '/about', icon: User },
-  { name: 'Contacto', path: '/contact', icon: Mail }
-]
-
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value
+interface NavLink {
+  name: string
+  path: string
+  icon: any
 }
 
-const closeMenu = () => {
-  isMenuOpen.value = false
+const navLinks: NavLink[] = [
+  { name: 'Inicio', path: '/', icon: Home },
+  { name: 'Sobre Mí', path: '/about', icon: User },
+  { name: 'Contacto', path: '/contact', icon: Mail },
+  { name: 'CV', path: '/cv', icon: FileText },
+]
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
 }
 </script>
 
 <template>
-  <header class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-    <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+  <header class="fixed top-0 left-0 right-0 h-16 bg-black/95 text-white z-50 border-b border-white/10">
+    <div class="container mx-auto h-full flex items-center justify-between px-4 md:px-6">
       <!-- Logo -->
-      <router-link to="/" class="text-xl font-bold tracking-tight text-gray-900" @click="closeMenu">
-        ARES<span class="text-blue-600">POLO</span>
-      </router-link>
-
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-8">
-        <router-link 
-          v-for="item in navItems" 
-          :key="item.path" 
-          :to="item.path"
-          class="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1.5"
-          active-class="text-blue-600"
-        >
-          <component :is="item.icon" :size="16" />
-          {{ item.name }}
+      <div class="flex items-center">
+        <router-link to="/" class="flex items-center gap-2 font-bold transition-transform hover:scale-105">
+          <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,0,0,0.4)]">
+            A
+          </div>
+          <span class="tracking-tight uppercase">ARESPOLO</span>
         </router-link>
-        
-        <!-- CV Link -->
+      </div>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-2">
         <router-link 
-          to="/cv" 
-          class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-blue-700 transition-all shadow-sm"
+          v-for="link in navLinks" 
+          :key="link.path" 
+          :to="link.path"
+          class="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all hover:text-brand"
+          active-class="bg-brand !text-white"
         >
-          CV
+          <component 
+            :is="link.icon" 
+            :size="18" 
+          />
+          {{ link.name }}
         </router-link>
       </nav>
 
-      <!-- Mobile Menu Button -->
-      <button 
-        class="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
-        @click="toggleMenu"
+      <!-- Desktop Action -->
+      <div class="hidden lg:flex items-center">
+        <a href="#projects" class="bg-brand text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-brand/80 transition-all transform hover:scale-105">
+          Ver Proyectos
+        </a>
+      </div>
+
+      <!-- Mobile Menu Trigger -->
+      <Button 
+        variant="ghost" 
+        size="icon" 
+        @click="toggleMobileMenu" 
+        class="lg:hidden text-white hover:bg-brand/20 hover:text-brand"
       >
-        <Menu v-if="!isMenuOpen" :size="24" />
+        <Menu v-if="!isMobileMenuOpen" :size="24" />
         <X v-else :size="24" />
-      </button>
+      </Button>
     </div>
 
-    <!-- Mobile Navigation -->
-    <div 
-      v-show="isMenuOpen" 
-      class="md:hidden bg-white border-b border-gray-100 py-4 px-4 space-y-2 animate-in fade-in slide-in-from-top-4 duration-200"
+    <!-- Mobile Navigation Overlay -->
+    <transition
+      enter-active-class="transition duration-300 ease-out"
+      enter-from-class="translate-x-full"
+      enter-to-class="translate-x-0"
+      leave-active-class="transition duration-200 ease-in"
+      leave-from-class="translate-x-0"
+      leave-to-class="translate-x-full"
     >
-      <router-link 
-        v-for="item in navItems" 
-        :key="item.path" 
-        :to="item.path"
-        class="flex items-center gap-3 p-3 rounded-xl text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-all font-medium"
-        active-class="bg-blue-50 text-blue-600"
-        @click="closeMenu"
+      <div 
+        v-if="isMobileMenuOpen" 
+        class="lg:hidden fixed inset-0 top-0 bg-black z-[60] flex flex-col py-20 px-8"
       >
-        <component :is="item.icon" :size="20" />
-        {{ item.name }}
-      </router-link>
-
-      <!-- Mobile CV Link -->
-      <router-link 
-        to="/cv"
-        class="flex items-center gap-3 p-3 rounded-xl text-blue-600 bg-blue-50 font-bold"
-        @click="closeMenu"
-      >
-        <FileText :size="20" />
-        Curriculum (CV)
-      </router-link>
-    </div>
+        <button @click="isMobileMenuOpen = false" class="absolute top-5 right-5 text-white p-2">
+            <X :size="32" />
+        </button>
+        <div class="flex flex-col gap-6">
+            <router-link 
+              v-for="link in navLinks" 
+              :key="link.path" 
+              :to="link.path"
+              @click="isMobileMenuOpen = false"
+              class="flex items-center gap-4 text-3xl font-bold transition-colors text-white/50 hover:text-brand"
+              active-class="!text-brand"
+            >
+              <component :is="link.icon" :size="32" class="text-brand" />
+              {{ link.name }}
+            </router-link>
+            <a 
+              href="#projects" 
+              @click="isMobileMenuOpen = false"
+              class="flex items-center gap-4 text-3xl font-bold text-brand"
+            >
+              <Briefcase :size="32" />
+              Ver Proyectos
+            </a>
+        </div>
+      </div>
+    </transition>
   </header>
 </template>
-
-<style scoped>
-.router-link-active {
-  position: relative;
-}
-
-@media (min-width: 768px) {
-  .router-link-active::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: rgb(37, 99, 235);
-    border-radius: 2px;
-  }
-}
-</style>

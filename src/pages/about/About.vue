@@ -2,10 +2,10 @@
 import { GraduationCap, Award, Palette, Camera, Code2, Users } from 'lucide-vue-next'
 
 const skills = [
-  { name: 'Cartelería', icon: Palette, color: 'text-pink-500' },
-  { name: 'Fotografía', icon: Camera, color: 'text-orange-500' },
-  { name: 'Processing', icon: Code2, color: 'text-blue-500' },
-  { name: 'Atención al público', icon: Users, color: 'text-green-500' }
+  { name: 'Cartelería', icon: Palette, color: 'text-brand' },
+  { name: 'Fotografía', icon: Camera, color: 'text-brand' },
+  { name: 'Processing', icon: Code2, color: 'text-brand' },
+  { name: 'Atención al público', icon: Users, color: 'text-brand' }
 ]
 
 const education = [
@@ -23,61 +23,67 @@ const education = [
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-24">
-    <div class="max-w-4xl mx-auto">
-      <!-- Intro Section -->
-      <section class="mb-20 text-center">
-        <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">Sobre Mí</h1>
-        <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-          Soy un creador digital apasionado por la intersección entre el diseño visual y la tecnología. 
-          Mi objetivo es construir productos que no solo funcionen perfectamente, sino que también deleiten a los usuarios.
-        </p>
-      </section>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <!-- Education -->
-        <section>
-          <div class="flex items-center gap-3 mb-8">
-            <div class="p-2 bg-blue-50 text-blue-600 rounded-lg">
-              <GraduationCap :size="24" />
-            </div>
-            <h2 class="text-2xl font-bold text-gray-900">Estudios</h2>
-          </div>
-          
-          <div class="space-y-8 border-l-2 border-gray-100 pl-6 ml-4">
-            <div 
-              v-for="item in education" 
-              :key="item.degree"
-              class="relative"
-            >
-              <div class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-blue-600"></div>
-              <p class="text-sm font-bold text-blue-600 mb-1">{{ item.period }}</p>
-              <h3 class="text-lg font-bold text-gray-900">{{ item.degree }}</h3>
-              <p class="text-gray-500">{{ item.institution }}</p>
-            </div>
-          </div>
+  <div class="bg-black text-white min-h-screen">
+    <div class="container mx-auto px-4 py-24">
+      <div class="max-w-4xl mx-auto">
+        <!-- Intro Section -->
+        <section class="mb-20 text-center">
+          <h1 class="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">Sobre Mí</h1>
+          <p class="text-xl text-white/60 leading-relaxed max-w-2xl mx-auto">
+            Soy un creador digital apasionado por la intersección entre el diseño visual y la tecnología. 
+            Mi objetivo es construir productos que no solo funcionen perfectamente, sino que también deleiten a los usuarios.
+          </p>
         </section>
 
-        <!-- Skills -->
-        <section>
-          <div class="flex items-center gap-3 mb-8">
-            <div class="p-2 bg-purple-50 text-purple-600 rounded-lg">
-              <Award :size="24" />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Education -->
+          <section>
+            <div class="flex items-center gap-3 mb-8">
+              <div class="p-2 bg-brand/10 text-brand rounded-lg">
+                <GraduationCap :size="24" />
+              </div>
+              <h2 class="text-2xl font-bold text-white">Estudios</h2>
             </div>
-            <h2 class="text-2xl font-bold text-gray-900">Habilidades</h2>
-          </div>
+            
+            <div class="space-y-8 border-l-2 border-white/5 pl-6 ml-4">
+              <div 
+                v-for="item in education" 
+                :key="item.degree"
+                class="relative"
+              >
+                <div class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-black border-4 border-brand"></div>
+                <p class="text-sm font-bold text-brand mb-1">{{ item.period }}</p>
+                <h3 class="text-lg font-bold text-white">{{ item.degree }}</h3>
+                <p class="text-white/40">{{ item.institution }}</p>
+              </div>
+            </div>
+          </section>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div 
-              v-for="skill in skills" 
-              :key="skill.name"
-              class="p-6 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow group flex flex-col items-center text-center"
-            >
-              <component :is="skill.icon" :size="32" :class="['mb-4 transition-transform group-hover:scale-110', skill.color]" />
-              <h3 class="font-bold text-gray-900">{{ skill.name }}</h3>
+          <!-- Skills -->
+          <section>
+            <div class="flex items-center gap-3 mb-8">
+              <div class="p-2 bg-brand/10 text-brand rounded-lg">
+                <Award :size="24" />
+              </div>
+              <h2 class="text-2xl font-bold text-white">Habilidades</h2>
             </div>
-          </div>
-        </section>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div 
+                v-for="skill in skills" 
+                :key="skill.name"
+                class="p-6 bg-[#0a0a0a] border border-white/5 rounded-2xl shadow-sm hover:shadow-brand/10 transition-shadow group flex flex-col items-center text-center"
+              >
+                <component 
+                  :is="skill.icon" 
+                  :size="32" 
+                  :class="['mb-4 transition-transform group-hover:scale-110', skill.name === 'Processing' ? 'text-brand' : skill.color]" 
+                />
+                <h3 class="font-bold text-white">{{ skill.name }}</h3>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   </div>
