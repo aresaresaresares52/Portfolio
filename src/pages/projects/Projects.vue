@@ -1,15 +1,45 @@
 <script setup lang="ts">
 import { ArrowRight } from 'lucide-vue-next'
 import { projects } from '@/data/projects'
+import bgImage from '@/assets/proyectos.fondo.jpg'
+import pixel1 from '@/assets/pixelado1.png'
+import pixel2 from '@/assets/pixelado2.png'
+import pixel3 from '@/assets/pixelado3.png'
+import pixel4 from '@/assets/pixelado4.png'
+import PixelLayer from '@/components/common/PixelLayer.vue'
 </script>
 
 <template>
-  <section id="projects" class="py-32 bg-[#050505] border-t border-white/5">
-    <div class="container mx-auto px-6">
+  <section 
+    id="projects" 
+    class="relative py-32 bg-black border-t border-white/5 overflow-hidden group/projects"
+    :style="{ 
+      backgroundImage: `url(${bgImage})`,
+      backgroundAttachment: 'fixed',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '100% auto'
+    }"
+  >
+    <!-- Capas de Píxeles (Componentes) -->
+    <PixelLayer :image="pixel1" />
+    <PixelLayer :image="pixel2" />
+    <PixelLayer :image="pixel3" />
+    <PixelLayer :image="pixel4" />
+
+    <!-- Overlay sutil opcional para legibilidad si el fondo es muy claro -->
+    <div class="absolute inset-0 bg-black/20 z-0 pointer-events-none"></div>
+    
+    <!-- Gradientes de limpieza de 100px en los márgenes -->
+    <div class="absolute top-0 left-0 right-0 h-[100px] bg-gradient-to-b from-black to-transparent z-[1] pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-[100px] bg-gradient-to-t from-black to-transparent z-[1] pointer-events-none"></div>
+
+    <div class="container mx-auto px-6 relative z-10">
+
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
         <div class="max-w-2xl">
-          <h2 class="font-serif text-4xl md:text-5xl text-white mb-6">Trabajos Seleccionados</h2>
-          <p class="font-sans text-lg text-white/40 font-light">Explora una selección curada de proyectos donde el diseño y la tecnología convergen.</p>
+          <h2 class="font-serif text-4xl md:text-5xl text-white mb-6">Proyectos</h2>
+          <p class="font-sans text-lg text-white/40 font-light">Le voy a quitar los titulos </p>
         </div>
       </div>
 

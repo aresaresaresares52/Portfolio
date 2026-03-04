@@ -30,7 +30,7 @@ import Projects from '@/pages/projects/Projects.vue'
       <div class="absolute inset-0 z-[1] bg-gradient-to-b from-black/20 via-transparent to-black pointer-events-none"></div>
 
       <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-white/30 z-20">
-        <span class="text-[10px] uppercase tracking-[0.3em] font-medium">Scroll</span>
+       <!-- <span class="text-[10px] uppercase tracking-[0.3em] font-medium">Scroll</span>-->
         <div class="w-[1px] h-12 bg-gradient-to-b from-brand to-transparent"></div>
       </div>
     </section>

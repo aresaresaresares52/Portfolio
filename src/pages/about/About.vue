@@ -33,6 +33,7 @@ const education = [
           <p class="text-xl text-white/60 leading-relaxed max-w-2xl mx-auto">
             Soy un creador digital apasionado por la intersección entre el diseño visual y la tecnología. 
             Mi objetivo es construir productos que no solo funcionen perfectamente, sino que también deleiten a los usuarios.
+            Que mas se hacer: Concimientos en el ámbito de la comunicación, exoeriencia como tecnico de sonido y actor en varios cortometrajes, modelo amateur, poeta y saxofonista vocacional, diseñador web en formacion.
           </p>
         </section>
 
