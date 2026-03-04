@@ -21,70 +21,70 @@ const handlePrint = () => {
       </div>
 
       <!-- CV Paper -->
-      <div class="bg-white shadow-2xl rounded-[2.5rem] overflow-hidden border border-gray-100 print:shadow-none print:border-none">
+      <div class="bg-[#0a0a0a] shadow-2xl rounded-[2.5rem] overflow-hidden border border-white/5 print:shadow-none print:border-none">
         
         <!-- Header / Banner -->
-        <div class="bg-gray-900 px-8 md:px-12 py-12 text-white">
+        <div class="bg-brand px-8 md:px-12 py-12 text-white">
           <div class="flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
             <!-- Photo Placeholder -->
-            <div class="w-40 h-40 rounded-3xl bg-gray-800 border-2 border-gray-700 overflow-hidden flex-shrink-0 relative group">
-              <div class="absolute inset-0 flex items-center justify-center text-gray-600 bg-gray-800">
+            <div class="w-40 h-40 rounded-3xl bg-black/20 border-2 border-white/10 overflow-hidden flex-shrink-0 relative group">
+              <div class="absolute inset-0 flex items-center justify-center text-white/20 bg-black/20">
                 <span class="text-xs uppercase font-bold tracking-widest">Foto</span>
               </div>
-              <!-- <img src="/tu-foto.jpg" alt="Ares Polo" class="w-full h-full object-cover relative z-10" /> -->
             </div>
 
             <div class="flex-grow">
-              <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-2">ARES POLO</h1>
-              <p class="text-brand font-bold text-lg mb-6 uppercase tracking-[0.2em]">Diseño & Tecnologías Creativas</p>
+              <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-2 uppercase">ARES POLO</h1>
+              <p class="text-black font-bold text-lg mb-6 uppercase tracking-[0.2em] opacity-80">Diseño & Tecnologías Creativas</p>
               
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-sm text-gray-400">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-sm text-white/70">
                 <div class="flex items-center gap-2 justify-center md:justify-start">
-                  <Mail :size="14" class="text-brand" />
+                  <Mail :size="14" class="text-black" />
                   <span>dteccccares@gmail.com</span>
                 </div>
                 <div class="flex items-center gap-2 justify-center md:justify-start">
-                  <MapPin :size="14" class="text-brand" />
+                  <MapPin :size="14" class="text-black" />
                   <span>Valencia, España</span>
                 </div>
                 <div class="flex items-center gap-2 justify-center md:justify-start">
-                  <Phone :size="14" class="text-brand" />
+                  <Phone :size="14" class="text-black" />
                   <span>+34 000 000 000</span>
                 </div>
                 <div class="flex items-center gap-6 justify-center md:justify-start mt-2">
-                  <a href="#" class="hover:text-white transition-colors"><Github :size="16" /></a>
-                  <a href="#" class="hover:text-white transition-colors"><Linkedin :size="16" /></a>
+                  <a href="#" class="hover:text-black transition-colors"><Github :size="16" /></a>
+                  <a href="#" class="hover:text-black transition-colors"><Linkedin :size="16" /></a>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="p-8 md:p-12 space-y-12 bg-white">
+        <div class="p-8 md:p-12 space-y-12 bg-[#0a0a0a]">
           <!-- Formación Académica -->
           <section>
             <div class="flex items-center gap-4 mb-8">
               <div class="w-10 h-10 bg-brand/10 text-brand rounded-xl flex items-center justify-center">
                 <GraduationCap :size="20" />
               </div>
-              <h2 class="text-2xl font-black text-gray-900 tracking-tight uppercase">Formación Académica</h2>
+              <h2 class="text-2xl font-black text-white tracking-tight uppercase">Formación Académica</h2>
             </div>
 
-            <div class="space-y-10 pl-4 border-l-2 border-gray-100 ml-5">
+            <div class="space-y-10 pl-4 border-l-2 border-white/5 ml-5">
               <!-- UPV -->
               <div class="relative">
-                <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-white border-4 border-brand"></div>
+                <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-black border-4 border-brand"></div>
                 <div>
                   <div class="flex flex-col md:flex-row md:justify-between items-start mb-2 gap-1">
-                    <h3 class="text-xl font-bold text-gray-900">Grado en Diseño y Tecnologías Creativas</h3>
+                    <h3 class="text-xl font-bold text-white">Grado en Diseño y Tecnologías Creativas</h3>
                     <span class="px-3 py-1 bg-brand/10 text-brand text-xs font-bold rounded-full">2023 - Presente</span>
                   </div>
-                  <p class="text-gray-600 font-semibold mb-3">Universidad Politécnica de Valencia (UPV)</p>
-                  <p class="text-gray-500 leading-relaxed italic">
+                  <p class="text-white/60 font-semibold mb-3">Universidad Politécnica de Valencia (UPV)</p>
+                  <p class="text-white/40 leading-relaxed italic">
                     Segundo año del grado. Explorando activamente la intersección entre la creatividad visual y la implementación técnica.
                   </p>
                 </div>
               </div>
+
 
               <!-- Bachillerato -->
               <div class="relative">

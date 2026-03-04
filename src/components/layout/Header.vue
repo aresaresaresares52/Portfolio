@@ -10,6 +10,8 @@ import {
   X
 } from 'lucide-vue-next'
 import { Button } from '@/components/ui/button'
+import AppLogo from '@/components/common/AppLogo.vue'
+
 
 const isMobileMenuOpen = ref(false)
 
@@ -20,10 +22,11 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { name: 'Inicio', path: '/', icon: Home },
-  { name: 'Sobre Mí', path: '/about', icon: User },
-  { name: 'Contacto', path: '/contact', icon: Mail },
-  { name: 'CV', path: '/cv', icon: FileText },
+  { name: 'Inicio', path: '/#top', icon: Home },
+  { name: 'Proyectos', path: '/#projects', icon: Briefcase },
+  { name: 'Quien soy', path: '/#about', icon: User },
+  { name: 'Contacto', path: '/#contact', icon: Mail },
+  { name: 'CV', path: '/#cv', icon: FileText },
 ]
 
 const toggleMobileMenu = () => {
@@ -37,36 +40,26 @@ const toggleMobileMenu = () => {
       <!-- Logo -->
       <div class="flex items-center">
         <router-link to="/" class="flex items-center gap-2 font-bold transition-transform hover:scale-105">
-          <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,0,0,0.4)]">
-            A
-          </div>
+          <AppLogo :size="32" />
           <span class="tracking-tight uppercase">ARESPOLO</span>
         </router-link>
       </div>
 
       <!-- Desktop Navigation Links -->
-      <nav class="hidden lg:flex items-center gap-2">
+      <nav class="hidden lg:flex items-center gap-1">
         <router-link 
           v-for="link in navLinks" 
           :key="link.path" 
           :to="link.path"
-          class="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all hover:text-brand"
-          active-class="bg-brand !text-white"
+          class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase transition-all hover:bg-brand/10 hover:text-brand"
         >
           <component 
             :is="link.icon" 
-            :size="18" 
+            :size="14" 
           />
           {{ link.name }}
         </router-link>
       </nav>
-
-      <!-- Desktop Action -->
-      <div class="hidden lg:flex items-center">
-        <a href="#projects" class="bg-brand text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-brand/80 transition-all transform hover:scale-105">
-          Ver Proyectos
-        </a>
-      </div>
 
       <!-- Mobile Menu Trigger -->
       <Button 
@@ -108,14 +101,6 @@ const toggleMobileMenu = () => {
               <component :is="link.icon" :size="32" class="text-brand" />
               {{ link.name }}
             </router-link>
-            <a 
-              href="#projects" 
-              @click="isMobileMenuOpen = false"
-              class="flex items-center gap-4 text-3xl font-bold text-brand"
-            >
-              <Briefcase :size="32" />
-              Ver Proyectos
-            </a>
         </div>
       </div>
     </transition>

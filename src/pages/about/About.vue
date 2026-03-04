@@ -23,9 +23,10 @@ const education = [
 </script>
 
 <template>
-  <div class="bg-black text-white min-h-screen">
-    <div class="container mx-auto px-4 py-24">
-      <div class="max-w-4xl mx-auto">
+  <div class="bg-black text-white w-full">
+    <div class="container mx-auto px-6 py-32">
+      <div class="max-w-5xl mx-auto">
+
         <!-- Intro Section -->
         <section class="mb-20 text-center">
           <h1 class="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">Sobre Mí</h1>

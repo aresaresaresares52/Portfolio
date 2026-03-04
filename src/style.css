@@ -28,8 +28,8 @@
   --color-ring: var(--ring);
   --color-brand: #ff0000;
 
-  --font-sans: "Reddit Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Volkhov", serif;
+  --font-sans: "Rubik", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Rubik", sans-serif;
 }
 
 :root {
