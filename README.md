@@ -1,6 +1,6 @@
-# Web de Nombre y apellido
+# Web de Ares Polo
 
-Este proyecto es una web de tipo...
+Este proyecto es mi portfolio 
 
 ## Comandos principales
 

@@ -180,6 +180,7 @@ const handlePrint = () => {
   }
   body {
     -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }
 </style>
