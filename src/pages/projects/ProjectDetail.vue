@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { projects } from '@/data/projects'
+import { useProjects } from '@/composables/useProjects'
 import { ArrowLeft, Calendar, Tag, ChevronRight } from 'lucide-vue-next'
 
 const route = useRoute()
 const router = useRouter()
+const { getProjectById } = useProjects()
 
 const project = computed(() => {
-  return projects.find(p => p.id === route.params.id)
+  return getProjectById(route.params.id as string | string[])
 })
 
 const goBack = () => {
@@ -17,20 +18,22 @@ const goBack = () => {
 </script>
 
 <template>
-  <div v-if="project" class="bg-black text-white min-h-screen">
-    <div class="container mx-auto px-4 py-24">
+  <article v-if="project" class="bg-black text-white min-h-screen">
+    <div class="container py-24">
       <!-- Navigation Breadcrumb -->
-      <button 
-        @click="goBack"
-        class="flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors mb-8 group"
-      >
-        <ArrowLeft :size="16" class="group-hover:-translate-x-1 transition-transform" />
-        Volver
-      </button>
+      <nav>
+        <button 
+          @click="goBack"
+          class="flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors mb-8 group"
+        >
+          <ArrowLeft :size="16" class="group-hover:-translate-x-1 transition-transform" />
+          Volver
+        </button>
+      </nav>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
         <!-- Left Column: Image & Main Info -->
-        <div class="lg:col-span-2 space-y-8">
+        <section class="lg:col-span-2 space-y-8">
           <div class="aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/5">
             <img 
               :src="project.image" 
@@ -39,14 +42,14 @@ const goBack = () => {
             />
           </div>
 
-          <div class="prose prose-invert prose-lg max-w-none">
+          <header class="prose prose-invert prose-lg max-w-none">
             <h1 class="text-4xl font-black text-white tracking-tight">{{ project.title }}</h1>
             <p class="text-xl text-white/60 leading-relaxed">{{ project.longDescription }}</p>
-          </div>
-        </div>
+          </header>
+        </section>
 
         <!-- Right Column: Sidebar Stats -->
-        <div class="space-y-8">
+        <aside class="space-y-8">
           <div class="bg-[#0a0a0a] rounded-[2rem] p-8 border border-white/5">
             <h2 class="text-lg font-bold text-white mb-6">Detalles del Proyecto</h2>
             
@@ -86,10 +89,10 @@ const goBack = () => {
             Ver proyecto en vivo
             <ChevronRight :size="18" class="group-hover:translate-x-1 transition-transform" />
           </button>
-        </div>
+        </aside>
       </div>
     </div>
-  </div>
+  </article>
   
   <div v-else class="bg-black text-white min-h-screen flex items-center justify-center text-center p-4">
     <div>

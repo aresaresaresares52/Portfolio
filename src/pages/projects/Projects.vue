@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import bgImage from '@/assets/proyectos.fondo.jpg'
-import ProjectsContainer from '@/components/projects/ProjectsContainer.vue'
+import ProjectsCardsEnvelope from '@/components/projects/ProjectCardsEnvelope.vue'
 </script>
 
 <template>
@@ -12,7 +12,7 @@ import ProjectsContainer from '@/components/projects/ProjectsContainer.vue'
     }"
   >
 
-    <ProjectsContainer />
+    <ProjectsCardsEnvelope />
 
     <!-- Overlay sutil opcional para legibilidad si el fondo es muy claro -->
     <div class="absolute inset-0 bg-black/20 z-0 pointer-events-none"></div>
@@ -21,7 +21,7 @@ import ProjectsContainer from '@/components/projects/ProjectsContainer.vue'
     <div class="absolute top-0 left-0 right-0 h-[100px] bg-gradient-to-b from-black to-transparent z-[1] pointer-events-none"></div>
     <div class="absolute bottom-0 left-0 right-0 h-[100px] bg-gradient-to-t from-black to-transparent z-[1] pointer-events-none"></div>
 
-    <div class="container mx-auto px-6 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
 
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
         <div class="max-w-2xl pointer-events-none">
@@ -38,7 +38,7 @@ import ProjectsContainer from '@/components/projects/ProjectsContainer.vue'
   background-image: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .projects-section {
     background-image: var(--bg-image);
     background-attachment: fixed;

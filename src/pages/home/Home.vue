@@ -6,7 +6,7 @@ import Projects from '@/pages/projects/Projects.vue'
 </script>
 
 <template>
-  <div class="bg-black text-white" id="top">
+  <main class="bg-black text-white" id="top">
     <!-- Hero Section / "La Portada" -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
       <!-- Background Glows -->
@@ -52,5 +52,5 @@ import Projects from '@/pages/projects/Projects.vue'
     <section id="cv" class="border-t border-white/5">
       <CV />
     </section>
-  </div>
+  </main>
 </template>

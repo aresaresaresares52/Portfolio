@@ -14,7 +14,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="relative group bg-black border-[3px] border-[#00FF00] aspect-square overflow-hidden flex flex-col justify-end p-6 transition-all duration-300">
+  <div class="relative group bg-black border-[3px] border-[#00FF00] aspect-[5/4] overflow-hidden flex flex-col justify-end p-6 transition-all duration-300">
     <!-- Imagen de fondo que ocupa el cuadrado exacto (en escala de grises inicial) -->
     <img 
       v-if="project.image"

@@ -19,31 +19,17 @@ interface PixelItem {
 // 2. Clases de Tailwind extraídas para limpieza del template
 const commonHoverClass = "transform scale-70 transition-all duration-500 ease-out hover:brightness-[1.5] hover:scale-80 cursor-pointer"
 
-// 3. Datos de las imágenes vinculadas a un Proyecto
+// ----------------------------------------------------------------------
+// 🚨 AQUÍ PUEDES EDITAR LA POSICIÓN DE LAS IMÁGENES EN ESCRITORIO 🚨
+// Modifica los valores "top" y "left" (acepta porcentajes o píxeles).
+// Estas coordenadas solo afectan la vista de PC (pantallas grandes).
+// En móviles y tablets la organización es automática en la cuadrícula.
+// ----------------------------------------------------------------------
 const pixelImages: (PixelItem & { project: typeof projects[0] })[] = [
-  { id: 1, src: pixel1, top: '32%', left: '-11%', alt: 'Decoración pixel 1', project: projects[0]! },
-  { id: 2, src: pixel2, top: '05%', left: '50%', alt: 'Decoración pixel 2', project: projects[1]! },
-  { id: 3, src: pixel3, top: '51%', left: '59%', alt: 'Decoración pixel 3', project: projects[2]! },
-  { 
-    id: 4, 
-    src: pixel4, 
-    top: '59%', 
-    left: '24%', 
-    alt: 'Decoración pixel 4', 
-    project: {
-      id: "all",
-      title: "Ver más proyectos",
-      category: "Explorar",
-      image: "", // Puedes sustituir esto por una imagen genérica después
-      description: "",
-      client: "",
-      date: "",
-      role: "",
-      link: "",
-      tags: [],
-      gallery: []
-    } as any
-  },
+  { id: 1, src: pixel1, top: '28%', left: '-11%', alt: 'Decoración pixel 1', project: projects[0]! },
+  { id: 2, src: pixel2, top: '03%', left: '50%', alt: 'Decoración pixel 2', project: projects[1]! },
+  { id: 3, src: pixel3, top: '47%', left: '59%', alt: 'Decoración pixel 3', project: projects[2]! },
+  { id: 4, src: pixel4, top: '55%', left: '24%', alt: 'Decoración pixel 4', project: projects[3]! },
 ]
 </script>
 
@@ -69,7 +55,9 @@ const pixelImages: (PixelItem & { project: typeof projects[0] })[] = [
       
       <!-- La tarjeta de proyecto flotando encima, justo en el centro del dibujo -->
       <div class="absolute inset-0 flex items-center justify-center pointer-events-none" v-if="pixel.project">
-        <div class="w-[200px] md:w-[250px] pointer-events-auto shadow-[0_0_20px_rgba(0,255,0,0.2)]">
+        <div class="w-[300px] md:w-[350px] 
+        -translate-y-20 translate-x-35 
+        pointer-events-auto shadow-[0_0_20px_rgba(0,255,0,0.2)]">
           <ProjectCard :project="pixel.project" />
         </div>
       </div>

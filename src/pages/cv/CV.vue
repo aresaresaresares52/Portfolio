@@ -8,7 +8,7 @@ const handlePrint = () => {
 
 <template>
   <div class="min-h-screen bg-gray-50/50 py-12 md:py-24 animate-in fade-in duration-500">
-    <div class="container mx-auto px-4 max-w-4xl">
+    <div class="container max-w-4xl">
       <!-- Actions bar (Visible only on screen) -->
       <div class="flex justify-end mb-8 print:hidden">
         <button 

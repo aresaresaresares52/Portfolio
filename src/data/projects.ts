@@ -30,5 +30,15 @@ export const projects: Project[] = [
         image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000&auto=format&fit=crop',
         technologies: ['React Native', 'Firebase', 'TypeScript'],
         date: 'Junio 2024'
+    },
+    {
+        id: 'all',
+        title: 'Ver más proyectos',
+        category: 'Explorar',
+        description: '',
+        longDescription: '',
+        image: '',
+        technologies: [],
+        date: ''
     }
 ]
