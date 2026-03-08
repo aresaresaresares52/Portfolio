@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import bgImage from '@/assets/about.fondo.jpg'
+import TechSkills from '@/components/about/TechSkills.vue'
 
 </script>
 
 <template>
   <article 
-    class="relative bg-black text-white w-full bg-auto bg-center bg-no-repeat" 
+    class="relative min-h-screen bg-black text-white w-full bg-auto bg-center bg-no-repeat" 
     :style="{ backgroundImage: `linear-gradient(
     to bottom, 
     rgba(0,0,0,1) 0%,      /* Negro total arriba */
@@ -17,23 +18,27 @@ import bgImage from '@/assets/about.fondo.jpg'
     rgba(0,0,0,1) 100%   /* Solo un sombreado suave al cerrar */
   ), url(${bgImage})` }"
   >
-    <div class="container py-32"> 
-      <div class="max-w-5xl mx-auto">
+    <div class="container section-spacing">
 
         <!-- Columna de Contenido a la Izquierda (Mitad de pantalla en PC) -->
         <div class="w-full lg:w-1/2 md:w-2/3 space-y-16">
           
           <!-- Intro Section -->
           <section class="text-left">
-            <h1 class="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">Quien Soy</h1>
-            <p class="text-lg text-white/60 leading-relaxed max-w-2xl">
-              Sí, me llamo Ares de verdad. Estoy en segundo año del Grado en Diseño y Tecnologías Creativas en la UPV. Quien quiera saber más sobre mi trayectoria y experiencia, puede echar un ojo a mi curriculum. Breve adelanto: he trabajado en Japón.<br/><br/>
-              Quien vea mis proyectos se dará cuenta facilmente de que soy muy versátil.<br/>
-              Conocimientos en el ámbito de la comunicación, experiencia como técnico de sonido y actor en varios cortometrajes, modelo amateur, poeta y saxofonista vocacional, diseñador web en formación.
-            </p>
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-[rgb(255,0,0)] mb-6">Quien Soy</h1>
+            <div class="font-light text-xl text-white leading-normal max-w-2xl space-y-4">
+              <p>Hola! Me llamo Ares de verdad. Soy un diseñador versátil y polifacético que experimenta con una gran variedad de estilos y se adapta siempre a lo que pide el cliente. Actualmente estudio Diseño y Tecnologías Creativas en la UPV</p>
+              <p>Entre mis ámbitos de trabajo preferidos, se encuentran la cartelería, la fotografía y la programación artñistica, pero puedo abarcar mucho más.</p>
+              <p>Desde técnico de sonido hasta diseñador web, mi formación académica me ha permitido trabajar y adquirir conocimientos en muchos y diversos ámbitos, asegurandome una vision global para cada proyecto en el que trabajo.</p>
+            </div>
           </section>
 
-        </div>
+          <!-- Tech Skills Section -->
+          <section class="text-left mt-16">
+            <h2 class="text-3xl font-serif font-bold text-[rgb(255,0,0)] mb-6">Qué tecnologías domino</h2>
+            <TechSkills />
+          </section>
+
       </div>
     </div>
   </article>

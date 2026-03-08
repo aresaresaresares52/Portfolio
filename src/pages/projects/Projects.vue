@@ -6,7 +6,7 @@ import ProjectsCardsEnvelope from '@/components/projects/ProjectCardsEnvelope.vu
 <template>
   <section 
     id="projects" 
-    class="relative py-32 bg-black border-t border-white/5 overflow-clip group/projects projects-section min-h-[800px]"
+    class="relative section-spacing bg-black border-t border-white/5 overflow-clip group/projects projects-section min-h-[800px]"
     :style="{ 
       '--bg-image': `url(${bgImage})`
     }"
@@ -21,14 +21,13 @@ import ProjectsCardsEnvelope from '@/components/projects/ProjectCardsEnvelope.vu
     <div class="absolute top-0 left-0 right-0 h-[100px] bg-gradient-to-b from-black to-transparent z-[1] pointer-events-none"></div>
     <div class="absolute bottom-0 left-0 right-0 h-[100px] bg-gradient-to-t from-black to-transparent z-[1] pointer-events-none"></div>
 
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
-        <div class="max-w-2xl pointer-events-none">
-          <h2 class="font-serif text-4xl md:text-5xl text-white mb-6">Proyectos</h2>
-          <p class="font-sans text-lg text-white/40 font-light">Explora mis últimos trabajos</p>
+    <div class="container relative z-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
+          <div class="max-w-2xl pointer-events-none">
+            <h2 class="font-serif font-bold text-4xl md:text-5xl text-white mb-6">Proyectos</h2>
+            <p class="font-light text-xl text-white">Mis trabajos más destacados</p>
+          </div>
         </div>
-      </div>
     </div>
   </section>
 </template>

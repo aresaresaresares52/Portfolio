@@ -28,8 +28,22 @@
   --color-ring: var(--ring);
   --color-brand: #ff0000;
 
-  --font-sans: "Rubik", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Kanit", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Rubik", sans-serif;
+  --font-kanit: "Kanit", sans-serif;
+}
+
+@layer utilities {
+  .container {
+    width: 100%;
+    margin-inline: auto;
+    /* Margen izquierdo y derecho de 24px en móvil, que va escalando a 96px en pantallas gigantes */
+    @apply px-4 sm:px-5 lg:px-11 xl:px-13 2xl:px-16;
+  }
+  
+  .section-spacing {
+    @apply py-12 md:py-16;
+  }
 }
 
 :root {
@@ -67,12 +81,15 @@ html {
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  h1,
+  h1 {
+    @apply font-serif font-bold text-white;
+  }
+
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-serif font-bold text-white;
+    @apply font-kanit font-bold text-white;
   }
 }

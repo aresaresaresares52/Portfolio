@@ -28,13 +28,12 @@ const handleSubmit = async () => {
 
 <template>
   <div class="bg-black text-white min-h-screen">
-    <div class="container mx-auto px-4 py-24">
-      <div class="max-w-5xl mx-auto">
+    <div class="container section-spacing">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <!-- Contact Info -->
           <div>
-            <h1 class="text-4xl font-black text-white mb-6 tracking-tight">Hablemos.</h1>
-            <p class="text-xl text-white/50 mb-12">¿Tienes un proyecto en mente o simplemente quieres decir hola? No dudes en contactarme.</p>
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Hablemos.</h1>
+            <p class="font-light text-xl text-white mb-12">¿Tienes un proyecto en mente o simplemente quieres decir hola? No dudes en contactarme.</p>
             
             <div class="space-y-8">
               <div class="flex items-center gap-4">
@@ -119,11 +118,10 @@ const handleSubmit = async () => {
               <div class="w-20 h-20 bg-brand/10 text-brand rounded-full flex items-center justify-center mx-auto mb-6">
                 <MessageSquare :size="40" />
               </div>
-              <h3 class="text-2xl font-black text-white mb-2">¡Gracias por escribir!</h3>
+              <h3 class="text-2xl font-serif text-white mb-2">¡Gracias por escribir!</h3>
               <p class="text-white/50">He recibido tu mensaje y te responderé lo antes posible.</p>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </div>

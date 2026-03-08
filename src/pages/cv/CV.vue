@@ -7,7 +7,7 @@ const handlePrint = () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-50/50 py-12 md:py-24 animate-in fade-in duration-500">
+  <div class="min-h-screen bg-gray-50/50 section-spacing animate-in fade-in duration-500">
     <div class="container max-w-4xl">
       <!-- Actions bar (Visible only on screen) -->
       <div class="flex justify-end mb-8 print:hidden">
@@ -34,7 +34,7 @@ const handlePrint = () => {
             </div>
 
             <div class="flex-grow">
-              <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-2 uppercase">ARES POLO</h1>
+              <h1 class="text-4xl md:text-5xl font-serif tracking-tight mb-2 uppercase">ARES POLO</h1>
               <p class="text-black font-bold text-lg mb-6 uppercase tracking-[0.2em] opacity-80">Diseño & Tecnologías Creativas</p>
               
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-sm text-white/70">
@@ -66,7 +66,7 @@ const handlePrint = () => {
               <div class="w-10 h-10 bg-brand/10 text-brand rounded-xl flex items-center justify-center">
                 <GraduationCap :size="20" />
               </div>
-              <h2 class="text-2xl font-black text-white tracking-tight uppercase">Formación Académica</h2>
+              <h2 class="text-2xl font-serif text-white tracking-tight uppercase">Formación Académica</h2>
             </div>
 
             <div class="space-y-10 pl-4 border-l-2 border-white/5 ml-5">
@@ -106,7 +106,7 @@ const handlePrint = () => {
               <div class="w-10 h-10 bg-brand/10 text-brand rounded-xl flex items-center justify-center">
                 <Briefcase :size="20" />
               </div>
-              <h2 class="text-2xl font-black text-gray-900 tracking-tight uppercase">Experiencia y Proyectos</h2>
+              <h2 class="text-2xl font-serif text-gray-900 tracking-tight uppercase">Experiencia y Proyectos</h2>
             </div>
 
             <div class="space-y-10 pl-4 border-l-2 border-gray-100 ml-5">
@@ -151,7 +151,7 @@ const handlePrint = () => {
               <div class="w-10 h-10 bg-brand/10 text-brand rounded-xl flex items-center justify-center">
                 <Award :size="20" />
               </div>
-              <h2 class="text-2xl font-black text-gray-900 tracking-tight uppercase">Cualidades Clave</h2>
+              <h2 class="text-2xl font-serif text-gray-900 tracking-tight uppercase">Cualidades Clave</h2>
             </div>
             <div class="flex flex-wrap gap-3">
               <span class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-gray-700">Responsabilidad</span>

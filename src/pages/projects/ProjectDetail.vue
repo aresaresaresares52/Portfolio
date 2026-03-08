@@ -43,7 +43,7 @@ const goBack = () => {
           </div>
 
           <header class="prose prose-invert prose-lg max-w-none">
-            <h1 class="text-4xl font-black text-white tracking-tight">{{ project.title }}</h1>
+            <h1 class="text-4xl font-serif text-white tracking-tight">{{ project.title }}</h1>
             <p class="text-xl text-white/60 leading-relaxed">{{ project.longDescription }}</p>
           </header>
         </section>

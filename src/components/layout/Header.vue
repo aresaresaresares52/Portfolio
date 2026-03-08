@@ -116,7 +116,7 @@ const toggleMobileMenu = () => {
               :key="link.path" 
               :to="link.path"
               @click="isMobileMenuOpen = false"
-              class="flex items-center px-8 py-6 text-[24px] font-black uppercase transition-all duration-300"
+              class="flex items-center px-8 py-6 text-[24px] font-serif uppercase transition-all duration-300"
               :class="activeSection === link.id 
                 ? 'bg-[#00FF00] text-black' 
                 : 'bg-black text-white hover:bg-brand/10 hover:text-brand'"
