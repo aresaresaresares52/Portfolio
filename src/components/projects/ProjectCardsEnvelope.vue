@@ -36,10 +36,11 @@ const pixelImages: (PixelItem & { project: typeof projects[0] })[] = [
 <template>
   <!-- Contenedor principal: 1 columna en móvil, 2 en tablet min-[740px], absoluto en escritorio lg -->
   <div class="relative w-full z-5 pointer-events-none grid grid-cols-1 min-[740px]:grid-cols-2 lg:block place-items-center" aria-hidden="true">
-    <div 
+    <router-link 
       v-for="pixel in pixelImages" 
       :key="pixel.id"
-      class="pixel-wrapper pointer-events-none w-fit h-fit origin-center relative lg:absolute"
+      :to="`/projects/${pixel.project?.id}`"
+      class="pixel-wrapper pointer-events-auto w-fit h-fit origin-center relative lg:absolute block"
       :class="commonHoverClass"
       :style="{ 
         '--desktop-top': pixel.top, 
@@ -50,7 +51,7 @@ const pixelImages: (PixelItem & { project: typeof projects[0] })[] = [
       <img 
         :src="pixel.src" 
         :alt="pixel.alt" 
-        class="w-auto h-auto max-w-none select-none pointer-events-auto"
+        class="w-auto h-auto max-w-none select-none" 
       />
       
       <!-- La tarjeta de proyecto flotando encima, justo en el centro del dibujo -->
@@ -61,7 +62,7 @@ const pixelImages: (PixelItem & { project: typeof projects[0] })[] = [
           <ProjectCard :project="pixel.project" />
         </div>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -90,8 +91,9 @@ const pixelImages: (PixelItem & { project: typeof projects[0] })[] = [
 /* En teléfonos móviles extendidos (<740px), 1 columna con solapamiento elegante */
 @media (max-width: 739px) {
   .pixel-wrapper {
-    margin-top: -40px;
-    margin-bottom: -40px;
+    margin-top: -20px;
+    margin-bottom: -20px;
   }
 }
 </style>
+

@@ -12,8 +12,6 @@ import ProjectsCardsEnvelope from '@/components/projects/ProjectCardsEnvelope.vu
     }"
   >
 
-    <ProjectsCardsEnvelope />
-
     <!-- Overlay sutil opcional para legibilidad si el fondo es muy claro -->
     <div class="absolute inset-0 bg-black/20 z-0 pointer-events-none"></div>
     
@@ -28,7 +26,11 @@ import ProjectsCardsEnvelope from '@/components/projects/ProjectCardsEnvelope.vu
             <p class="font-light text-xl text-white">Mis trabajos más destacados</p>
           </div>
         </div>
+
+        <!-- Las tarjetas ahora aparecen después del título -->
+        <ProjectsCardsEnvelope />
     </div>
+
   </section>
 </template>
 

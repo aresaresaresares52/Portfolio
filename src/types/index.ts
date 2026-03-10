@@ -8,6 +8,7 @@ export interface Project {
     technologies: string[];
     date: string;
     link?: string;
+    highlight?: string;
 }
 
 export interface Skill {

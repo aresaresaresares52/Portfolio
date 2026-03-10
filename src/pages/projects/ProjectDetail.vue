@@ -52,8 +52,11 @@ const currentProjectComponent = computed(() => {
             <ProjectDetailCard :project="project" />
           </header>
 
-          <div class="text-left font-light text-xl text-white leading-normal max-w-none translate-y-[50px]">
+          <div class="text-left font-light text-xl text-white leading-normal max-w-none translate-y-[70px] flex flex-col gap-10">
             <p>{{ project.description }}</p>
+            <p v-if="project.highlight" class="text-[rgb(0,255,0)] font-normal text-[23px]">
+              {{ project.highlight }}
+            </p>
           </div>
 
           <!-- Contenido dinámico específico del proyecto -->

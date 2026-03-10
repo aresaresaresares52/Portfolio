@@ -1,4 +1,13 @@
 <script setup lang="ts">
+const posters = [
+  "Descartado1_Molinero.Teo_Polo.Ares-01.jpg",
+  "Final_Molinero.Teo_Polo.Ares.jpg",
+   "cartel4.jpg",
+  "pamcabeceraredes.jpg",
+
+ 
+];
+
 defineProps<{
   project: {
     id: string | number
@@ -14,11 +23,20 @@ defineProps<{
 </script>
 
 <template>
-  <div class="pt-16 translate-y-[50px]">
-    <h2 class="text-2xl md:text-3xl font-kanit font-medium text-white uppercase mb-6">Detalles del Proyecto</h2>
-    <div class="text-white/80 font-light prose prose-invert">
-      <p>Contenido específico para el proyecto de Cartelería...</p>
-      <!-- Aquí puedes añadir más imágenes estáticas o texto particular de este proyecto -->
+  <div class="pt-16 translate-y-[10px]">
+    
+    <div class="flex flex-wrap gap-6 w-full max-w-6xl">
+      <div 
+        v-for="poster in posters" 
+        :key="poster"
+        class="flex-[1_1_calc(33.333%-1rem)] min-w-[250px]"
+      >
+        <img 
+          :src="`/src/assets/carteles/${poster}`" 
+          :alt="poster"
+          class="w-full h-auto"
+        />
+      </div>
     </div>
   </div>
 </template>

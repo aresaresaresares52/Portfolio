@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { AspectRatio } from '@/components/ui/aspect-ratio'
+import SectionTitle from '@/components/projects/SectionTitle.vue'
 
 defineProps<{
   project: {
@@ -17,8 +18,8 @@ defineProps<{
 
 <template>
   <div class="pt-16 translate-y-[50px]">
-    <h2 class="text-2xl md:text-3xl font-kanit font-medium text-white uppercase mb-6">Minijuegos</h2>
-    <div class="w-full max-w-6xl mt-12">
+    <SectionTitle title="MINIJUEGOS" />
+    <div class="w-full max-w-6xl">
       <AspectRatio :ratio="16 / 9" class="bg-muted rounded-xl overflow-hidden shadow-2xl border border-white/10">
         <iframe 
           class="w-full h-full"
@@ -29,6 +30,16 @@ defineProps<{
           allowfullscreen>
         </iframe>
       </AspectRatio>
+    </div>
+
+    <!-- Nueva sección: Animaciones -->
+    <div class="mt-24">
+      <SectionTitle title="ANIMACIONES" />
+      <div class="w-full max-w-[600px] aspect-square bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group hover:border-[#00FF00]/30 transition-colors">
+        <span class="font-kanit text-2xl text-white/40 group-hover:text-[#00FF00]/50 transition-colors uppercase tracking-widest">
+          Coming Soon
+        </span>
+      </div>
     </div>
   </div>
 </template>
