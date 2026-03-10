@@ -35,11 +35,11 @@ const pixelImages: (PixelItem & { project: typeof projects[0] })[] = [
 
 <template>
   <!-- Contenedor principal: 1 columna en móvil, 2 en tablet min-[740px], absoluto en escritorio lg -->
-  <div class="absolute inset-0 z-30 pointer-events-none grid grid-cols-1 min-[740px]:grid-cols-2 lg:block place-items-center overflow-hidden" aria-hidden="true">
+  <div class="relative w-full z-5 pointer-events-none grid grid-cols-1 min-[740px]:grid-cols-2 lg:block place-items-center" aria-hidden="true">
     <div 
       v-for="pixel in pixelImages" 
       :key="pixel.id"
-      class="pixel-wrapper pointer-events-auto w-fit h-fit origin-center relative lg:absolute"
+      class="pixel-wrapper pointer-events-none w-fit h-fit origin-center relative lg:absolute"
       :class="commonHoverClass"
       :style="{ 
         '--desktop-top': pixel.top, 
@@ -50,7 +50,7 @@ const pixelImages: (PixelItem & { project: typeof projects[0] })[] = [
       <img 
         :src="pixel.src" 
         :alt="pixel.alt" 
-        class="w-auto h-auto max-w-none select-none"
+        class="w-auto h-auto max-w-none select-none pointer-events-auto"
       />
       
       <!-- La tarjeta de proyecto flotando encima, justo en el centro del dibujo -->

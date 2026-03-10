@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GraduationCap, Briefcase, Globe, Mail, MapPin, Phone, Github, Linkedin, Award, Download } from 'lucide-vue-next'
+import { GraduationCap, Briefcase, Globe, Mail, MapPin, Phone, Github, Linkedin, Award, Download, Home } from 'lucide-vue-next'
 
 const handlePrint = () => {
   window.print()
@@ -7,13 +7,20 @@ const handlePrint = () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-50/50 section-spacing animate-in fade-in duration-500">
+  <div class="min-h-screen bg-black section-spacing animate-in fade-in duration-500">
     <div class="container max-w-4xl">
       <!-- Actions bar (Visible only on screen) -->
-      <div class="flex justify-end mb-8 print:hidden">
+      <div class="flex flex-col sm:flex-row gap-4 justify-between mb-8 print:hidden">
+        <router-link 
+          to="/"
+          class="flex items-center justify-center gap-2 bg-black border border-white/20 px-4 py-2 rounded-xl text-sm font-bold text-white hover:bg-white/10 transition-all shadow-sm"
+        >
+          <Home :size="16" />
+          Volver a Inicio
+        </router-link>
         <button 
           @click="handlePrint"
-          class="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-50 transition-all shadow-sm"
+          class="flex items-center justify-center gap-2 bg-black border border-white/20 px-4 py-2 rounded-xl text-sm font-bold text-white hover:bg-white/10 transition-all shadow-sm"
         >
           <Download :size="16" />
           Descargar PDF / Imprimir
@@ -34,7 +41,7 @@ const handlePrint = () => {
             </div>
 
             <div class="flex-grow">
-              <h1 class="text-4xl md:text-5xl font-serif tracking-tight mb-2 uppercase">ARES POLO</h1>
+              <h1 class="text-4xl md:text-5xl font-serif tracking-tight mb-2 uppercase text-black">ARES POLO</h1>
               <p class="text-black font-bold text-lg mb-6 uppercase tracking-[0.2em] opacity-80">Diseño & Tecnologías Creativas</p>
               
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-sm text-white/70">
@@ -51,8 +58,8 @@ const handlePrint = () => {
                   <span>+34 000 000 000</span>
                 </div>
                 <div class="flex items-center gap-6 justify-center md:justify-start mt-2">
-                  <a href="#" class="hover:text-black transition-colors"><Github :size="16" /></a>
-                  <a href="#" class="hover:text-black transition-colors"><Linkedin :size="16" /></a>
+                  <a href="#" class="hover:text-black transition-colors"><Github :size="16" class="text-black" /></a>
+                  <a href="#" class="hover:text-black transition-colors"><Linkedin :size="16" class="text-black" /></a>
                 </div>
               </div>
             </div>
@@ -91,10 +98,10 @@ const handlePrint = () => {
                 <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-gray-300"></div>
                 <div>
                   <div class="flex flex-col md:flex-row md:justify-between items-start mb-2 gap-1">
-                    <h3 class="text-xl font-bold text-gray-900">Bachillerato de Ciencias y Tecnología</h3>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-full">Finalizado</span>
+                    <h3 class="text-xl font-bold text-white">Bachillerato de Ciencias y Tecnología</h3>
+                    <span class="px-3 py-1 bg-white/10 text-white/60 text-xs font-bold rounded-full">Finalizado</span>
                   </div>
-                  <p class="text-gray-500 leading-relaxed font-medium">Nota de acceso a la universidad de <span class="text-brand font-bold">12,98 / 14</span>.</p>
+                  <p class="text-white/60 leading-relaxed font-medium">Nota de acceso a la universidad de <span class="text-brand font-bold">12,98 / 14</span>.</p>
                 </div>
               </div>
             </div>
@@ -106,23 +113,23 @@ const handlePrint = () => {
               <div class="w-10 h-10 bg-brand/10 text-brand rounded-xl flex items-center justify-center">
                 <Briefcase :size="20" />
               </div>
-              <h2 class="text-2xl font-serif text-gray-900 tracking-tight uppercase">Experiencia y Proyectos</h2>
+              <h2 class="text-2xl font-serif text-white tracking-tight uppercase">Experiencia y Proyectos</h2>
             </div>
 
-            <div class="space-y-10 pl-4 border-l-2 border-gray-100 ml-5">
+            <div class="space-y-10 pl-4 border-l-2 border-white/5 ml-5">
               <!-- Japón -->
               <div class="relative">
-                <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-white border-4 border-brand"></div>
+                <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-gray-300"></div>
                 <div>
                   <div class="flex flex-col md:flex-row md:justify-between items-start mb-2 gap-1">
-                    <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
-                       <Globe :size="18" class="text-brand" />
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                       <Globe :size="18" class="text-white/60" />
                        Experiencia Internacional: Osaka English House
                     </h3>
-                    <span class="px-3 py-1 bg-brand/10 text-brand text-xs font-bold rounded-full">Verano 2025</span>
+                    <span class="px-3 py-1 bg-white/10 text-white/60 text-xs font-bold rounded-full">Verano 2025</span>
                   </div>
-                  <p class="text-gray-600 font-semibold mb-3">Osaka, Japón</p>
-                  <p class="text-gray-500 leading-relaxed">
+                  <p class="text-white/60 font-semibold mb-3">Osaka, Japón</p>
+                  <p class="text-white/40 leading-relaxed">
                     Estancia de más de un mes en un entorno multicultural como parte del equipo. Perfeccionando habilidades comunicativas y de resolución de problemas en un contexto global altamente dinámico.
                   </p>
                 </div>
@@ -133,11 +140,11 @@ const handlePrint = () => {
                 <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-gray-300"></div>
                 <div>
                   <div class="flex flex-col md:flex-row md:justify-between items-start mb-2 gap-1">
-                    <h3 class="text-xl font-bold text-gray-900">Sector Servicios: La Marcona</h3>
-                    <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-full">Periodos festivos</span>
+                    <h3 class="text-xl font-bold text-white">Sector Servicios: La Marcona</h3>
+                    <span class="px-3 py-1 bg-white/10 text-white/60 text-xs font-bold rounded-full">Periodos festivos</span>
                   </div>
-                  <p class="text-gray-600 font-semibold mb-3">Titaguas, España</p>
-                  <p class="text-gray-500 leading-relaxed">
+                  <p class="text-white/60 font-semibold mb-3">Titaguas, España</p>
+                  <p class="text-white/40 leading-relaxed">
                     Colaboración recurrente durante periodos estivales y festivos. Desarrollo de alto sentido de la responsabilidad, atención al detalle y trabajo en equipo bajo presión.
                   </p>
                 </div>
@@ -151,21 +158,24 @@ const handlePrint = () => {
               <div class="w-10 h-10 bg-brand/10 text-brand rounded-xl flex items-center justify-center">
                 <Award :size="20" />
               </div>
-              <h2 class="text-2xl font-serif text-gray-900 tracking-tight uppercase">Cualidades Clave</h2>
+              <h2 class="text-2xl font-serif text-white tracking-tight uppercase">Cualidades Clave</h2>
             </div>
             <div class="flex flex-wrap gap-3">
-              <span class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-gray-700">Responsabilidad</span>
-              <span class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-gray-700">Resolución de Problemas</span>
-              <span class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-gray-700">Comunicación Global</span>
-              <span class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-gray-700">Adaptabilidad</span>
-              <span class="px-4 py-2 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-gray-700">Atención al Detalle</span>
+              <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-2xl text-sm font-bold text-white/80">Responsabilidad</span>
+              <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-2xl text-sm font-bold text-white/80">Resolución de Problemas</span>
+              <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-2xl text-sm font-bold text-white/80">Comunicación</span>
+              <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-2xl text-sm font-bold text-white/80">Adaptabilidad</span>
+              <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-2xl text-sm font-bold text-white/80">Trabajo en equipo</span>
+              <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-2xl text-sm font-bold text-white/80">Creatividad</span>
+              <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-2xl text-sm font-bold text-white/80">Capacidad de aprendizaje</span>
+              <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-2xl text-sm font-bold text-white/80">Versatilidad</span>
             </div>
           </section>
 
         </div>
 
         <!-- Footer Banner Print only -->
-        <div class="hidden print:block border-t border-gray-100 p-8 text-center text-sm text-gray-400">
+        <div class="hidden print:block border-t border-white/5 p-8 text-center text-sm text-white/40">
           Documento generado en arespolo-portfolio.web
         </div>
       </div>

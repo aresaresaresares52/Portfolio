@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { 
   Menu,
   X
@@ -7,6 +8,7 @@ import {
 import { Button } from '@/components/ui/button'
 import AppLogo from '@/components/common/AppLogo.vue'
 
+const route = useRoute()
 const isMobileMenuOpen = ref(false)
 const activeSection = ref('top')
 
@@ -21,10 +23,12 @@ const navLinks: NavLink[] = [
   { name: 'Proyectos', path: '/#projects', id: 'projects' },
   { name: 'Quien soy', path: '/#about', id: 'about' },
   { name: 'Contacto', path: '/#contact', id: 'contact' },
-  { name: 'CV', path: '/#cv', id: 'cv' },
+  { name: 'CV', path: '/cv', id: 'cv' },
 ]
 
 const handleScroll = () => {
+  if (route.path !== '/') return
+
   const sections = navLinks.map(link => document.getElementById(link.id))
   // Detección mejorada usando el centro de la pantalla o un offset consistente
   const scrollPosition = window.scrollY + 200
@@ -39,6 +43,21 @@ const handleScroll = () => {
     }
   })
 }
+
+watch(() => route.fullPath, () => {
+  if (route.path === '/cv') {
+    activeSection.value = 'cv'
+  } else if (route.path !== '/') {
+    activeSection.value = ''
+  } else {
+    if (route.hash) {
+      activeSection.value = route.hash.replace('#', '')
+    } else {
+      activeSection.value = 'top'
+    }
+    setTimeout(handleScroll, 300)
+  }
+}, { immediate: true })
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)

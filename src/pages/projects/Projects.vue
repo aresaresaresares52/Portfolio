@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import bgImage from '@/assets/proyectos.fondo.jpg'
+import bgImage from '@/assets/proyectos.fondo2.jpg'
 import ProjectsCardsEnvelope from '@/components/projects/ProjectCardsEnvelope.vue'
 </script>
 
 <template>
   <section 
     id="projects" 
-    class="relative section-spacing bg-black border-t border-white/5 overflow-clip group/projects projects-section min-h-[800px]"
+    class="relative section-spacing bg-black border-t border-white/5 group/projects projects-section min-h-screen"
     :style="{ 
       '--bg-image': `url(${bgImage})`
     }"
@@ -21,10 +21,10 @@ import ProjectsCardsEnvelope from '@/components/projects/ProjectCardsEnvelope.vu
     <div class="absolute top-0 left-0 right-0 h-[100px] bg-gradient-to-b from-black to-transparent z-[1] pointer-events-none"></div>
     <div class="absolute bottom-0 left-0 right-0 h-[100px] bg-gradient-to-t from-black to-transparent z-[1] pointer-events-none"></div>
 
-    <div class="container relative z-10">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
+    <div class="container relative z-10 pointer-events-none">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20 pointer-events-none">
           <div class="max-w-2xl pointer-events-none">
-            <h2 class="font-serif font-bold text-4xl md:text-5xl text-white mb-6">Proyectos</h2>
+            <h2 class="font-serif font-bold text-4xl md:text-5xl text-[rgb(0,255,0)] mb-6">Proyectos</h2>
             <p class="font-light text-xl text-white">Mis trabajos más destacados</p>
           </div>
         </div>

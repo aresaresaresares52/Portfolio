@@ -16,8 +16,8 @@ const socialLinks = [
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center gap-8">
         <div>
-          <h2 class="text-xl font-bold text-white mb-2">ARES<span class="text-brand">POLO</span></h2>
-          <p class="text-white/40 text-sm font-light">Diseño versátil e interdisciplinar</p>
+          <h2 class="text-xl font-bold text-[rgb(0,255,0)] mb-2">ARES<span class="text-white">POLO</span></h2>
+          <p class="text-white/40 text-sm font-light">Diseño versátil e interdisciplinar.</p>
         </div>
 
         <div class="flex items-center gap-6">
@@ -35,7 +35,7 @@ const socialLinks = [
         </div>
       </div>
 
-      <div class="mt-8 pt-8 border-t border-white/5 text-center text-xs text-white/20 tracking-widest uppercase">
+      <div class="mt-8 pt-8 border-t border-white/5 text-center text-xs text-white/40 tracking-widest font-serif font-normal">
         &copy; {{ currentYear }} Todos los derechos reservados.
       </div>
     </div>

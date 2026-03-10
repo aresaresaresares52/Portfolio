@@ -18,6 +18,11 @@ export const router = createRouter({
           path: 'projects/:id',
           name: 'project-detail',
           component: () => import('@/pages/projects/ProjectDetail.vue'),
+        },
+        {
+          path: 'cv',
+          name: 'cv',
+          component: () => import('@/pages/cv/CV.vue'),
         }
       ]
     },
@@ -28,10 +33,14 @@ export const router = createRouter({
   ],
   scrollBehavior(to, _from, savedPosition) {
     if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: 'smooth',
-      }
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({
+            el: to.hash,
+            behavior: 'smooth',
+          })
+        }, 350) // Delay to ensure out-in transition finishes and Home.vue is fully mounted
+      })
     }
     return savedPosition || { top: 0 }
   },

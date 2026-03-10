@@ -9,13 +9,15 @@ import Footer from './Footer.vue'
     <Header />
 
     <!-- Main Content Area: No fixed container to allow Hero/Portada to be full-width -->
-    <main class="flex-1 mt-16 overflow-x-hidden">
+    <main class="flex-1 mt-16">
       <router-view v-slot="{ Component }">
         <transition 
           name="fade" 
           mode="out-in"
         >
-          <component :is="Component" />
+          <div class="w-full h-full">
+            <component :is="Component" />
+          </div>
         </transition>
       </router-view>
     </main>

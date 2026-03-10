@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Send, Mail, MapPin, Phone, MessageSquare } from 'lucide-vue-next'
+import { Send, MessageSquare } from 'lucide-vue-next'
 
 const formData = ref({
   name: '',
@@ -13,92 +13,83 @@ const isSuccess = ref(false)
 
 const handleSubmit = async () => {
   isSubmitting.value = true
-  // Simulate API call
-  await new Promise(resolve => setTimeout(resolve, 1500))
-  isSubmitting.value = false
-  isSuccess.value = true
   
-  // Reset form
-  formData.value = { name: '', email: '', message: '' }
-  
-  // Reset success message after 5 seconds
-  setTimeout(() => { isSuccess.value = false }, 5000)
+  try {
+    const response = await fetch('https://formspree.io/f/xaqpnzob', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: formData.value.name,
+        email: formData.value.email,
+        message: formData.value.message
+      })
+    })
+
+    if (response.ok) {
+      isSuccess.value = true
+      formData.value = { name: '', email: '', message: '' }
+      setTimeout(() => { isSuccess.value = false }, 5000)
+    } else {
+      console.error('Error al enviar el formulario')
+    }
+  } catch (error) {
+    console.error('Error de red:', error)
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>
 
 <template>
   <div class="bg-black text-white min-h-screen">
     <div class="container section-spacing">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 justify-between items-center lg:items-stretch">
           <!-- Contact Info -->
-          <div>
-            <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Hablemos.</h1>
-            <p class="font-light text-xl text-white mb-12">¿Tienes un proyecto en mente o simplemente quieres decir hola? No dudes en contactarme.</p>
-            
-            <div class="space-y-8">
-              <div class="flex items-center gap-4">
-                <div class="p-3 bg-brand/10 text-brand rounded-xl">
-                  <Mail :size="24" />
-                </div>
-                <div>
-                  <p class="text-xs font-bold uppercase tracking-widest text-white/30">Email</p>
-                  <p class="text-white font-medium text-lg">dteccccares@gmail.com</p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-4">
-                <div class="p-3 bg-brand/10 text-brand rounded-xl">
-                  <MapPin :size="24" />
-                </div>
-                <div>
-                  <p class="text-xs font-bold uppercase tracking-widest text-white/30">Ubicación</p>
-                  <p class="text-white font-medium text-lg">Valencia, España</p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-4">
-                <div class="p-3 bg-brand/10 text-brand rounded-xl">
-                  <Phone :size="24" />
-                </div>
-                <div>
-                  <p class="text-xs font-bold uppercase tracking-widest text-white/30">Teléfono</p>
-                  <p class="text-white font-medium text-lg">+34 000 000 000</p>
-                </div>
-              </div>
-            </div>
+          <div class="flex flex-col justify-center gap-6 lg:gap-12 w-full lg:w-auto text-center lg:text-left">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">Hablemos.</h1>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[rgb(0,255,0)]">Contactame.</h1>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">Escribeme.</h1>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">Cuentame.</h1>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[rgb(0,255,0)]">Contact me.</h1>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">Hablemos.</h1>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[rgb(0,255,0)]">Hire me.</h1>
           </div>
 
-          <!-- Contact Form -->
-          <div class="bg-[#0a0a0a] p-8 md:p-12 rounded-[2.5rem] border border-white/5 shadow-2xl">
-            <form v-if="!isSuccess" @submit.prevent="handleSubmit" class="space-y-6">
-              <div class="space-y-2">
-                <label class="text-sm font-bold text-white/50 ml-1">Nombre Completo</label>
+          <!-- Contact Form & Vertical Text Wrapper -->
+          <div class="flex items-stretch gap-4 md:gap-8 xl:gap-16 w-full lg:w-auto flex-1 lg:justify-end">
+            <!-- Contact Form -->
+            <div class="bg-[#0a0a0a] p-6 md:p-10 rounded-none border-[3px] border-[#00FF00] shadow-2xl w-full min-w-0 max-w-xl">
+            <form v-if="!isSuccess" @submit.prevent="handleSubmit" class="space-y-6 font-serif">
+              <div>
+                <label class="block mb-3 text-lg font-normal text-white ml-1">Nombre o empresa</label>
                 <input 
                   v-model="formData.name" 
                   type="text" 
-                  class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-brand transition-all outline-none text-white placeholder:text-white/20" 
-                  placeholder="Tu nombre"
+                  class="w-full bg-white/5 border border-white/10 rounded-none p-4 focus:ring-2 focus:ring-[#00FF00] transition-all outline-none text-white placeholder:text-white/20" 
+                  placeholder="Nombre o empresa"
                   required 
                 />
               </div>
               
-              <div class="space-y-2">
-                <label class="text-sm font-bold text-white/50 ml-1">Email</label>
+              <div>
+                <label class="block mb-3 text-lg font-normal text-white ml-1">Email</label>
                 <input 
                   v-model="formData.email" 
                   type="email" 
-                  class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-brand transition-all outline-none text-white placeholder:text-white/20" 
+                  class="w-full bg-white/5 border border-white/10 rounded-none p-4 focus:ring-2 focus:ring-[#00FF00] transition-all outline-none text-white placeholder:text-white/20" 
                   placeholder="tu@email.com"
                   required 
                 />
               </div>
 
-              <div class="space-y-2">
-                <label class="text-sm font-bold text-white/50 ml-1">Mensaje</label>
+              <div>
+                <label class="block mb-3 text-lg font-normal text-white ml-1">Mensaje</label>
                 <textarea 
                   v-model="formData.message" 
-                  class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-brand transition-all outline-none h-40 resize-none text-white placeholder:text-white/20" 
-                  placeholder="Cuéntame sobre tu proyecto..."
+                  class="w-full bg-white/5 border border-white/10 rounded-none p-4 focus:ring-2 focus:ring-[#00FF00] transition-all outline-none h-40 resize-none text-white placeholder:text-white/20" 
+                  placeholder="¿Qué se te ofrece?"
                   required
                 ></textarea>
               </div>
@@ -106,7 +97,7 @@ const handleSubmit = async () => {
               <button 
                 type="submit" 
                 :disabled="isSubmitting"
-                class="w-full bg-brand text-white p-5 rounded-2xl font-bold hover:bg-brand/80 transition-all shadow-lg flex items-center justify-center gap-2 group disabled:opacity-50"
+                class="w-full bg-[#00FF00] text-black p-5 rounded-none text-lg font-medium hover:bg-[#00FF00]/80 transition-all shadow-lg flex items-center justify-center gap-2 group disabled:opacity-50"
               >
                 <span>{{ isSubmitting ? 'Enviando...' : 'Enviar mensaje' }}</span>
                 <Send v-if="!isSubmitting" :size="20" class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -114,14 +105,22 @@ const handleSubmit = async () => {
             </form>
 
             <!-- Success Message -->
-            <div v-else class="text-center py-12 animate-in zoom-in duration-300">
-              <div class="w-20 h-20 bg-brand/10 text-brand rounded-full flex items-center justify-center mx-auto mb-6">
+            <div v-else class="text-center py-12 animate-in zoom-in duration-300 font-serif">
+              <div class="w-20 h-20 bg-[#00FF00]/10 text-[#00FF00] rounded-none flex items-center justify-center mx-auto mb-6">
                 <MessageSquare :size="40" />
               </div>
               <h3 class="text-2xl font-serif text-white mb-2">¡Gracias por escribir!</h3>
               <p class="text-white/50">He recibido tu mensaje y te responderé lo antes posible.</p>
             </div>
           </div>
+
+          <!-- Vertical Text (All screens) -->
+          <div class="flex items-center justify-center shrink-0">
+            <h2 class="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-sans font-bold text-white tracking-[0.2em] lg:tracking-wider whitespace-nowrap" style="writing-mode: vertical-rl; transform: rotate(180deg);">
+              dteccccares@gmail.com
+            </h2>
+          </div>
+        </div>
       </div>
     </div>
   </div>

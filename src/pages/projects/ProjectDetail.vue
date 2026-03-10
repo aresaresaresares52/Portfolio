@@ -1,95 +1,69 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useProjects } from '@/composables/useProjects'
-import { ArrowLeft, Calendar, Tag, ChevronRight } from 'lucide-vue-next'
+import { ArrowLeft } from 'lucide-vue-next'
+import ProjectDetailCard from '@/components/projects/ProjectDetailCard.vue'
+
+// Importamos los contenidos dinámicos de cada proyecto
+import Project1Content from '@/components/projects/content/Project1Content.vue'
+import Project2Content from '@/components/projects/content/Project2Content.vue'
+import Project3Content from '@/components/projects/content/Project3Content.vue'
 
 const route = useRoute()
-const router = useRouter()
 const { getProjectById } = useProjects()
 
 const project = computed(() => {
   return getProjectById(route.params.id as string | string[])
 })
 
-const goBack = () => {
-  router.back()
+// Mapeamos el ID del proyecto con su componente correspondiente
+const projectComponents: Record<string, any> = {
+  '1': Project1Content,
+  '2': Project2Content,
+  '3': Project3Content
 }
+
+const currentProjectComponent = computed(() => {
+  if (!project.value) return null
+  return projectComponents[String(project.value.id)] || null
+})
 </script>
 
 <template>
-  <article v-if="project" class="bg-black text-white min-h-screen">
-    <div class="container py-24">
-      <!-- Navigation Breadcrumb -->
+  <article v-if="project" class="relative bg-black text-white min-h-screen">
+    <div class="container relative z-10 py-24">
       <nav>
-        <button 
-          @click="goBack"
-          class="flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors mb-8 group"
+        <router-link 
+          to="/#projects"
+          class="inline-flex items-center gap-2 text-sm font-serif font-normal text-white/50 hover:text-white transition-all mb-8 group -translate-y-[50px]"
         >
           <ArrowLeft :size="16" class="group-hover:-translate-x-1 transition-transform" />
-          Volver
-        </button>
+          Volver a proyectos
+        </router-link>
       </nav>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        <!-- Left Column: Image & Main Info -->
-        <section class="lg:col-span-2 space-y-8">
-          <div class="aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/5">
-            <img 
-              :src="project.image" 
-              :alt="project.title"
-              class="w-full h-full object-cover"
-            />
+      <div class="flex flex-col gap-12">
+        <!-- Main Info -->
+        <section class="space-y-12">
+          
+          <!-- Cabecera de una sola línea, sin caja ni padding extra -->
+          <header class="flex justify-start">
+            <ProjectDetailCard :project="project" />
+          </header>
+
+          <div class="text-left font-light text-xl text-white leading-normal max-w-none translate-y-[50px]">
+            <p>{{ project.description }}</p>
           </div>
 
-          <header class="prose prose-invert prose-lg max-w-none">
-            <h1 class="text-4xl font-serif text-white tracking-tight">{{ project.title }}</h1>
-            <p class="text-xl text-white/60 leading-relaxed">{{ project.longDescription }}</p>
-          </header>
+          <!-- Contenido dinámico específico del proyecto -->
+          <component 
+            v-if="currentProjectComponent" 
+            :is="currentProjectComponent" 
+            :project="project" 
+          />
         </section>
 
-        <!-- Right Column: Sidebar Stats -->
-        <aside class="space-y-8">
-          <div class="bg-[#0a0a0a] rounded-[2rem] p-8 border border-white/5">
-            <h2 class="text-lg font-bold text-white mb-6">Detalles del Proyecto</h2>
-            
-            <div class="space-y-6">
-              <div class="flex items-start gap-3">
-                <Tag :size="18" class="text-brand mt-1" />
-                <div>
-                  <p class="text-xs font-bold uppercase tracking-widest text-white/30">Categoría</p>
-                  <p class="text-white font-medium">{{ project.category }}</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-3">
-                <Calendar :size="18" class="text-brand mt-1" />
-                <div>
-                  <p class="text-xs font-bold uppercase tracking-widest text-white/30">Fecha</p>
-                  <p class="text-white font-medium">{{ project.date }}</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-8 pt-8 border-t border-white/5">
-              <p class="text-xs font-bold uppercase tracking-widest text-white/30 mb-4">Tecnologías</p>
-              <div class="flex flex-wrap gap-2">
-                <span 
-                  v-for="tech in project.technologies" 
-                  :key="tech"
-                  class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-semibold text-white/70 shadow-sm"
-                >
-                  {{ tech }}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <button class="w-full bg-brand text-white p-5 rounded-2xl font-bold hover:bg-brand/80 transition-all shadow-lg hover:shadow-brand/20 flex items-center justify-center gap-2 group">
-            Ver proyecto en vivo
-            <ChevronRight :size="18" class="group-hover:translate-x-1 transition-transform" />
-          </button>
-        </aside>
       </div>
     </div>
   </article>
@@ -101,3 +75,14 @@ const goBack = () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+/* Ocultar barra de scroll para el carrusel de fotos, pero mantener la funcionalidad */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+</style>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import About from '@/pages/about/About.vue'
 import Contact from '@/pages/contact/Contact.vue'
-import CV from '@/pages/cv/CV.vue'
 import Projects from '@/pages/projects/Projects.vue'
 </script>
 
@@ -48,9 +47,6 @@ import Projects from '@/pages/projects/Projects.vue'
       <Contact />
     </section>
 
-    <!-- CV Section -->
-    <section id="cv" class="border-t border-white/5">
-      <CV />
-    </section>
+
   </main>
 </template>
