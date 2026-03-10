@@ -1,6 +1,14 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { Skeleton } from '@/components/ui/skeleton'
 import SectionTitle from '@/components/projects/SectionTitle.vue'
+
+const isVideoLoaded = ref(false)
+
+const handleVideoLoad = () => {
+  isVideoLoaded.value = true
+}
 
 defineProps<{
   project: {
@@ -17,17 +25,25 @@ defineProps<{
 </script>
 
 <template>
-  <div class="pt-16 translate-y-[50px]">
+  <div class="pt-16 translate-y-[-50px]">
     <SectionTitle title="MINIJUEGOS" />
     <div class="w-full max-w-6xl">
-      <AspectRatio :ratio="16 / 9" class="bg-muted rounded-xl overflow-hidden shadow-2xl border border-white/10">
+      <AspectRatio :ratio="16 / 9" class="bg-muted rounded-xl overflow-hidden shadow-2xl border border-white/10 relative">
+        <!-- Skeleton que se muestra mientras el iframe carga -->
+        <Skeleton 
+          v-if="!isVideoLoaded" 
+          class="absolute inset-0 z-20 w-full h-full bg-white/5 animate-pulse" 
+        />
+        
         <iframe 
           class="w-full h-full"
           src="https://www.youtube.com/embed/NAipI-Qs_V8" 
           title="YouTube video player" 
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen>
+          allowfullscreen
+          @load="handleVideoLoad"
+        >
         </iframe>
       </AspectRatio>
     </div>

@@ -1,30 +1,37 @@
 <script setup lang="ts">
 import Header from './Header.vue'
 import Footer from './Footer.vue'
+import Sonner from '@/components/ui/sonner/Sonner.vue'
+import { TooltipProvider } from '@/components/ui/tooltip'
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col bg-background text-foreground">
-    <!-- Header -->
-    <Header />
+  <TooltipProvider>
+    <div class="min-h-screen flex flex-col bg-background text-foreground">
+      <!-- Toaster para notificaciones globales -->
+      <Sonner position="top-center" theme="dark" />
 
-    <!-- Main Content Area: No fixed container to allow Hero/Portada to be full-width -->
-    <main class="flex-1 mt-16">
-      <router-view v-slot="{ Component }">
-        <transition 
-          name="fade" 
-          mode="out-in"
-        >
-          <div class="w-full h-full">
-            <component :is="Component" />
-          </div>
-        </transition>
-      </router-view>
-    </main>
+      <!-- Header -->
+      <Header />
 
-    <!-- Footer -->
-    <Footer />
-  </div>
+      <!-- Main Content Area: No fixed container to allow Hero/Portada to be full-width -->
+      <main class="flex-1 mt-16">
+        <router-view v-slot="{ Component }">
+          <transition 
+            name="fade" 
+            mode="out-in"
+          >
+            <div class="w-full h-full">
+              <component :is="Component" />
+            </div>
+          </transition>
+        </router-view>
+      </main>
+
+      <!-- Footer -->
+      <Footer />
+    </div>
+  </TooltipProvider>
 </template>
 
 <style scoped>

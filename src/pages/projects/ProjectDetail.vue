@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useProjects } from '@/composables/useProjects'
 import { ArrowLeft } from 'lucide-vue-next'
-import ProjectDetailCard from '@/components/projects/ProjectDetailCard.vue'
+import ProjectDetailCard from '@/components/projects/ProjectDetailcard.vue'
 
 // Importamos los contenidos dinámicos de cada proyecto
 import Project1Content from '@/components/projects/content/Project1Content.vue'

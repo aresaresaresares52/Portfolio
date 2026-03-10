@@ -25,7 +25,7 @@ const commonHoverClass = "transform scale-70 transition-all duration-500 ease-ou
 // Estas coordenadas solo afectan la vista de PC (pantallas grandes).
 // En móviles y tablets la organización es automática en la cuadrícula.
 // ----------------------------------------------------------------------
-const pixelImages: (PixelItem & { project: typeof projects[0] })[] = [
+const pixelImages: (PixelItem & { project: (typeof projects)[0] })[] = [
   { id: 1, src: pixel1, top: '28%', left: '-11%', alt: 'Decoración pixel 1', project: projects[0]! },
   { id: 2, src: pixel2, top: '03%', left: '50%', alt: 'Decoración pixel 2', project: projects[1]! },
   { id: 3, src: pixel3, top: '47%', left: '59%', alt: 'Decoración pixel 3', project: projects[2]! },
@@ -33,9 +33,10 @@ const pixelImages: (PixelItem & { project: typeof projects[0] })[] = [
 ]
 </script>
 
+
 <template>
   <!-- Contenedor principal: 1 columna en móvil, 2 en tablet min-[740px], absoluto en escritorio lg -->
-  <div class="relative w-full z-5 pointer-events-none grid grid-cols-1 min-[740px]:grid-cols-2 lg:block place-items-center" aria-hidden="true">
+  <div class="relative lg:absolute lg:inset-0 w-full z-5 pointer-events-none grid grid-cols-1 min-[740px]:grid-cols-2 lg:block place-items-center" aria-hidden="true">
     <router-link 
       v-for="pixel in pixelImages" 
       :key="pixel.id"

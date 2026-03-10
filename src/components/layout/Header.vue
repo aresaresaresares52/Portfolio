@@ -7,6 +7,7 @@ import {
 } from 'lucide-vue-next'
 import { Button } from '@/components/ui/button'
 import AppLogo from '@/components/common/AppLogo.vue'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 
 const route = useRoute()
 const isMobileMenuOpen = ref(false)
@@ -76,12 +77,21 @@ const toggleMobileMenu = () => {
 <template>
   <header class="fixed top-0 left-0 right-0 h-[54px] bg-black z-50 border-b border-white/10">
     <div class="container mx-auto h-full flex items-center justify-between px-4 md:px-6">
-      <!-- Logo -->
+      <!-- Logo con Popover -->
       <div class="flex items-center">
-        <router-link to="/" class="flex items-center gap-1.5 font-bold transition-transform hover:scale-105 -ml-[4px]">
-          <AppLogo :size="50" />
-          <span class="tracking-tight uppercase text-[17px]"><span class="text-[#00FF00]">ARES</span>POLO</span>
-        </router-link>
+        <Popover>
+          <PopoverTrigger as-child>
+            <button class="flex items-center gap-1.5 font-bold transition-transform hover:scale-105 -ml-[4px] outline-none">
+              <AppLogo :size="50" />
+              <span class="tracking-tight uppercase text-[17px] text-white"><span class="text-[#00FF00]">ARES</span>POLO</span>
+            </button>
+          </PopoverTrigger>
+          <PopoverContent class="bg-black border-[#00FF00] border-2 text-white p-4 w-fit shadow-[0_0_15px_rgba(0,255,0,0.3)]">
+            <div class="flex flex-col gap-0 items-center">
+              <p class="font-kanit text-lg select-all decoration-[#00FF00] underline underline-offset-4">dteccccares@gmail.com</p>
+            </div>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <!-- Desktop Navigation Links -->

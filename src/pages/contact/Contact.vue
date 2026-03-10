@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Send, MessageSquare } from 'lucide-vue-next'
+import { Send } from 'lucide-vue-next'
+import { Label } from '@/components/ui/label'
+import { toast } from 'vue-sonner'
 
 const formData = ref({
   name: '',
@@ -9,33 +11,42 @@ const formData = ref({
 })
 
 const isSubmitting = ref(false)
-const isSuccess = ref(false)
 
 const handleSubmit = async () => {
+  if (isSubmitting.value) return
+  
+  const loadingToast = toast.loading('Enviando mensaje...')
   isSubmitting.value = true
   
   try {
     const response = await fetch('https://formspree.io/f/xaqpnzob', {
       method: 'POST',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        name: formData.value.name,
-        email: formData.value.email,
-        message: formData.value.message
-      })
+      body: JSON.stringify(formData.value)
     })
 
     if (response.ok) {
-      isSuccess.value = true
-      formData.value = { name: '', email: '', message: '' }
-      setTimeout(() => { isSuccess.value = false }, 5000)
+      toast.success('¡Mensaje enviado!', {
+        id: loadingToast,
+        description: 'Te responderé lo antes posible.',
+      })
+      
+      // Limpiamos los campos inmediatamente
+      formData.value = { 
+        name: '', 
+        email: '', 
+        message: '' 
+      }
     } else {
-      console.error('Error al enviar el formulario')
+      throw new Error('Error en el envío')
     }
   } catch (error) {
-    console.error('Error de red:', error)
+    toast.error('No se pudo enviar. Inténtalo de nuevo.', {
+      id: loadingToast,
+    })
   } finally {
     isSubmitting.value = false
   }
@@ -45,51 +56,55 @@ const handleSubmit = async () => {
 <template>
   <div class="bg-black text-white min-h-screen">
     <div class="container section-spacing">
-        <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 justify-between items-center lg:items-stretch">
-          <!-- Contact Info -->
-          <div class="flex flex-col justify-center gap-6 lg:gap-12 w-full lg:w-auto text-center lg:text-left">
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">Hablemos.</h1>
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[rgb(0,255,0)]">Contactame.</h1>
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">Escribeme.</h1>
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">Cuentame.</h1>
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[rgb(0,255,0)]">Contact me.</h1>
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">Hablemos.</h1>
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[rgb(0,255,0)]">Hire me.</h1>
-          </div>
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 justify-between items-center lg:items-stretch">
+        
+        <!-- Contact Info -->
+        <div class="flex flex-col justify-center gap-6 lg:gap-12 w-full lg:w-auto text-center lg:text-left">
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">Hablemos.</h1>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[rgb(0,255,0)]">Contactame.</h1>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">Escribeme.</h1>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">Cuentame.</h1>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[rgb(0,255,0)]">Contact me.</h1>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">Hablemos.</h1>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[rgb(0,255,0)]">Hire me.</h1>
+        </div>
 
-          <!-- Contact Form & Vertical Text Wrapper -->
-          <div class="flex items-stretch gap-4 md:gap-8 xl:gap-16 w-full lg:w-auto flex-1 lg:justify-end">
-            <!-- Contact Form -->
-            <div class="bg-[#0a0a0a] p-6 md:p-10 rounded-none border-[3px] border-[#00FF00] shadow-2xl w-full min-w-0 max-w-xl">
-            <form v-if="!isSuccess" @submit.prevent="handleSubmit" class="space-y-6 font-serif">
-              <div>
-                <label class="block mb-3 text-lg font-normal text-white ml-1">Nombre o empresa</label>
+        <!-- Contact Form Wrapper -->
+        <div class="flex items-stretch gap-4 md:gap-8 xl:gap-16 w-full lg:w-auto flex-1 lg:justify-end">
+          <div class="bg-[#0a0a0a] p-6 md:p-10 rounded-none border-[3px] border-[#00FF00] shadow-[0_0_30px_rgba(0,255,0,0.1)] w-full min-w-0 max-w-xl self-center">
+            
+            <form @submit.prevent="handleSubmit" class="space-y-6">
+              <div class="grid gap-3">
+                <Label for="name" class="text-lg font-kanit font-normal text-white lowercase ml-1">Nombre o empresa</Label>
                 <input 
+                  id="name"
                   v-model="formData.name" 
                   type="text" 
-                  class="w-full bg-white/5 border border-white/10 rounded-none p-4 focus:ring-2 focus:ring-[#00FF00] transition-all outline-none text-white placeholder:text-white/20" 
-                  placeholder="Nombre o empresa"
+                  class="w-full bg-white/5 border border-white/10 rounded-none p-4 focus:border-[#00FF00] focus:bg-white/10 transition-all outline-none text-white placeholder:text-white/10" 
+                  placeholder="Escribe tu nombre aquí"
                   required 
                 />
               </div>
               
-              <div>
-                <label class="block mb-3 text-lg font-normal text-white ml-1">Email</label>
+              <div class="grid gap-3">
+                <Label for="email" class="text-lg font-kanit font-normal text-white lowercase ml-1">Email de contacto</Label>
                 <input 
+                  id="email"
                   v-model="formData.email" 
                   type="email" 
-                  class="w-full bg-white/5 border border-white/10 rounded-none p-4 focus:ring-2 focus:ring-[#00FF00] transition-all outline-none text-white placeholder:text-white/20" 
-                  placeholder="tu@email.com"
+                  class="w-full bg-white/5 border border-white/10 rounded-none p-4 focus:border-[#00FF00] focus:bg-white/10 transition-all outline-none text-white placeholder:text-white/10" 
+                  placeholder="tu@correo.com"
                   required 
                 />
               </div>
 
-              <div>
-                <label class="block mb-3 text-lg font-normal text-white ml-1">Mensaje</label>
+              <div class="grid gap-3">
+                <Label for="message" class="text-lg font-kanit font-normal text-white lowercase ml-1">Mensaje</Label>
                 <textarea 
+                  id="message"
                   v-model="formData.message" 
-                  class="w-full bg-white/5 border border-white/10 rounded-none p-4 focus:ring-2 focus:ring-[#00FF00] transition-all outline-none h-40 resize-none text-white placeholder:text-white/20" 
-                  placeholder="¿Qué se te ofrece?"
+                  class="w-full bg-white/5 border border-white/10 rounded-none p-4 focus:border-[#00FF00] focus:bg-white/10 transition-all outline-none h-40 resize-none text-white placeholder:text-white/10" 
+                  placeholder="¿En qué puedo ayudarte?"
                   required
                 ></textarea>
               </div>
@@ -97,31 +112,24 @@ const handleSubmit = async () => {
               <button 
                 type="submit" 
                 :disabled="isSubmitting"
-                class="w-full bg-[#00FF00] text-black p-5 rounded-none text-lg font-medium hover:bg-[#00FF00]/80 transition-all shadow-lg flex items-center justify-center gap-2 group disabled:opacity-50"
+                class="w-full bg-[#00FF00] text-black p-5 rounded-none text-lg font-bold hover:bg-white transition-all shadow-[0_5px_15px_rgba(0,255,0,0.2)] flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed uppercase"
               >
-                <span>{{ isSubmitting ? 'Enviando...' : 'Enviar mensaje' }}</span>
+                <span>{{ isSubmitting ? 'Procesando...' : 'Enviar mensaje' }}</span>
                 <Send v-if="!isSubmitting" :size="20" class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </button>
             </form>
-
-            <!-- Success Message -->
-            <div v-else class="text-center py-12 animate-in zoom-in duration-300 font-serif">
-              <div class="w-20 h-20 bg-[#00FF00]/10 text-[#00FF00] rounded-none flex items-center justify-center mx-auto mb-6">
-                <MessageSquare :size="40" />
-              </div>
-              <h3 class="text-2xl font-serif text-white mb-2">¡Gracias por escribir!</h3>
-              <p class="text-white/50">He recibido tu mensaje y te responderé lo antes posible.</p>
-            </div>
           </div>
 
-          <!-- Vertical Text (All screens) -->
-          <div class="flex items-center justify-center shrink-0">
-            <h2 class="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-sans font-bold text-white tracking-[0.2em] lg:tracking-wider whitespace-nowrap" style="writing-mode: vertical-rl; transform: rotate(180deg);">
+          <!-- Vertical Text -->
+          <div class="flex items-center justify-center shrink-0 hidden sm:flex">
+            <h2 class="text-xl lg:text-4xl font-sans font-bold text-white whitespace-nowrap" style="writing-mode: vertical-rl; transform: rotate(180deg);">
               dteccccares@gmail.com
             </h2>
           </div>
+
         </div>
       </div>
     </div>
   </div>
 </template>
+

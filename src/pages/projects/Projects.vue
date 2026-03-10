@@ -27,9 +27,11 @@ import ProjectsCardsEnvelope from '@/components/projects/ProjectCardsEnvelope.vu
           </div>
         </div>
 
-        <!-- Las tarjetas ahora aparecen después del título -->
-        <ProjectsCardsEnvelope />
     </div>
+
+    <!-- Las tarjetas fuera del container para que el posicionamiento absoluto use toda la sección -->
+    <ProjectsCardsEnvelope />
+
 
   </section>
 </template>
