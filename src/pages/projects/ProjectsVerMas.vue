@@ -1,18 +1,12 @@
 <script setup lang="ts">
-import { ArrowLeft } from 'lucide-vue-next'
+import BackLink from '@/components/projects/BackLink.vue'
 </script>
 
 <template>
   <div class="bg-black text-white min-h-screen flex flex-col p-6 md:p-12">
     <!-- Botón volver -->
     <nav class="mb-4">
-      <router-link 
-        to="/#projects"
-        class="inline-flex items-center gap-2 text-sm font-serif font-normal text-white/50 hover:text-white transition-all group"
-      >
-        <ArrowLeft :size="16" class="group-hover:-translate-x-1 transition-transform" />
-        Volver a proyectos
-      </router-link>
+      <BackLink />
     </nav>
     
     <!-- Recuadro principal -->

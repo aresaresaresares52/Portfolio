@@ -2,7 +2,8 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useProjects } from '@/composables/useProjects'
-import { ArrowLeft } from 'lucide-vue-next'
+import BackLink from '@/components/projects/BackLink.vue'
+import VerMasLink from '@/components/projects/VerMasLink.vue'
 import ProjectDetailCard from '@/components/projects/ProjectDetailcard.vue'
 
 // Importamos los contenidos dinámicos de cada proyecto
@@ -33,14 +34,9 @@ const currentProjectComponent = computed(() => {
 <template>
   <article v-if="project" class="relative bg-black text-white min-h-screen">
     <div class="container relative z-10 py-24">
-      <nav>
-        <router-link 
-          to="/#projects"
-          class="inline-flex items-center gap-2 text-sm font-serif font-normal text-white/50 hover:text-white transition-all mb-8 group -translate-y-[50px]"
-        >
-          <ArrowLeft :size="16" class="group-hover:-translate-x-1 transition-transform" />
-          Volver a proyectos
-        </router-link>
+      <nav class="flex justify-between items-center mb-8 -translate-y-[50px]">
+        <BackLink />
+        <VerMasLink />
       </nav>
 
       <div class="flex flex-col gap-12">
@@ -65,6 +61,7 @@ const currentProjectComponent = computed(() => {
             :is="currentProjectComponent" 
             :project="project" 
           />
+
         </section>
 
       </div>

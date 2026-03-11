@@ -5,6 +5,8 @@ import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { toast } from 'vue-sonner'
 
+import fondocontact from '@/assets/fondocontact.jpg'
+
 const formData = ref({
   name: '',
   email: '',
@@ -55,8 +57,23 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <div class="bg-black text-white min-h-screen">
-    <div class="container section-spacing">
+  <div class="bg-black text-white min-h-screen relative overflow-hidden">
+    <!-- Gradientes de limpieza sutiles -->
+    <div class="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black to-transparent z-[5] pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent z-[5] pointer-events-none"></div>
+
+    <!-- Background Image for Desktop -->
+    <div 
+      class="absolute inset-0 z-0 hidden lg:block opacity-75 pointer-events-none"
+      :style="{ 
+        backgroundImage: `url(${fondocontact})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'auto',
+        backgroundPosition: 'right bottom' 
+      }"
+    ></div>
+
+    <div class="container section-spacing relative z-10">
       <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 justify-between items-center lg:items-stretch">
         
         <!-- Contact Info -->
