@@ -40,7 +40,7 @@ const pixelImages: (PixelItem & { project: (typeof projects)[0] })[] = [
     <router-link 
       v-for="pixel in pixelImages" 
       :key="pixel.id"
-      :to="`/projects/${pixel.project?.id}`"
+      :to="pixel.project?.id === 'all' ? '/projectsvermas' : `/projects/${pixel.project?.id}`"
       class="pixel-wrapper pointer-events-auto w-fit h-fit origin-center relative lg:absolute block"
       :class="commonHoverClass"
       :style="{ 

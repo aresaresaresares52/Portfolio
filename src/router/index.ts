@@ -23,6 +23,11 @@ export const router = createRouter({
           path: 'cv',
           name: 'cv',
           component: () => import('@/pages/cv/CV.vue'),
+        },
+        {
+          path: 'projectsvermas',
+          name: 'projects-ver-mas',
+          component: () => import('@/pages/projects/ProjectsVerMas.vue'),
         }
       ]
     },
