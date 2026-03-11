@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Autoplay from 'embla-carousel-autoplay'
-import { Card, CardContent } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel'
 import SectionTitle from '@/components/projects/SectionTitle.vue'
 

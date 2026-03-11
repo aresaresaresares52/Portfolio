@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import Header from './Header.vue'
 import Footer from './Footer.vue'
-import Sonner from '@/components/ui/sonner/Sonner.vue'
+import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
+import 'vue-sonner/style.css'
 </script>
 
 <template>
   <TooltipProvider>
     <div class="min-h-screen flex flex-col bg-background text-foreground">
       <!-- Toaster para notificaciones globales -->
-      <Sonner position="top-center" theme="dark" />
+      <Toaster position="top-center" expand richColors theme="dark" />
 
       <!-- Header -->
       <Header />

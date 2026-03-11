@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { Send } from 'lucide-vue-next'
 import { Label } from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
 import { toast } from 'vue-sonner'
 
 const formData = ref({
@@ -71,48 +72,69 @@ const handleSubmit = async () => {
 
         <!-- Contact Form Wrapper -->
         <div class="flex items-stretch gap-4 md:gap-8 xl:gap-16 w-full lg:w-auto flex-1 lg:justify-end">
-          <div class="bg-[#0a0a0a] p-6 md:p-10 rounded-none border-[3px] border-[#00FF00] shadow-[0_0_30px_rgba(0,255,0,0.1)] w-full min-w-0 max-w-xl self-center">
+          <div class="bg-[#0a0a0a] p-6 md:p-10 rounded-none border-[3px] border-[#00FF00] shadow-[0_0_30px_rgba(0,255,0,0.1)] w-full min-w-0 max-w-xl self-center relative">
             
             <form @submit.prevent="handleSubmit" class="space-y-6">
-              <div class="grid gap-3">
-                <Label for="name" class="text-lg font-kanit font-normal text-white lowercase ml-1">Nombre o empresa</Label>
-                <input 
+              <div class="grid gap-3 group">
+                <Label 
+                  for="name" 
+                  class="text-[22px] font-kanit font-normal text-white ml-1 transition-opacity"
+                  :class="isSubmitting ? 'opacity-50' : 'opacity-100'"
+                >
+                  Nombre o empresa
+                </Label>
+                <Input 
                   id="name"
                   v-model="formData.name" 
                   type="text" 
-                  class="w-full bg-white/5 border border-white/10 rounded-none p-4 focus:border-[#00FF00] focus:bg-white/10 transition-all outline-none text-white placeholder:text-white/10" 
+                  class="w-full bg-white/5 rounded-none h-14 p-4 focus-visible:ring-[#00FF00]/50 focus-visible:border-[#00FF00] text-white text-lg font-serif font-normal placeholder:text-white/20 placeholder:font-serif placeholder:text-[18px]" 
                   placeholder="Escribe tu nombre aquí"
                   required 
+                  :disabled="isSubmitting"
                 />
               </div>
               
-              <div class="grid gap-3">
-                <Label for="email" class="text-lg font-kanit font-normal text-white lowercase ml-1">Email de contacto</Label>
-                <input 
+              <div class="grid gap-3 group">
+                <Label 
+                  for="email" 
+                  class="text-[22px] font-kanit font-normal text-white ml-1 transition-opacity"
+                  :class="isSubmitting ? 'opacity-50' : 'opacity-100'"
+                >
+                  Email de contacto
+                </Label>
+                <Input 
                   id="email"
                   v-model="formData.email" 
                   type="email" 
-                  class="w-full bg-white/5 border border-white/10 rounded-none p-4 focus:border-[#00FF00] focus:bg-white/10 transition-all outline-none text-white placeholder:text-white/10" 
+                  class="w-full bg-white/5 rounded-none h-14 p-4 focus-visible:ring-[#00FF00]/50 focus-visible:border-[#00FF00] text-white text-lg font-serif font-normal placeholder:text-white/20 placeholder:font-serif placeholder:text-[18px]" 
                   placeholder="tu@correo.com"
                   required 
+                  :disabled="isSubmitting"
                 />
               </div>
 
-              <div class="grid gap-3">
-                <Label for="message" class="text-lg font-kanit font-normal text-white lowercase ml-1">Mensaje</Label>
+              <div class="grid gap-3 group">
+                <Label 
+                  for="message" 
+                  class="text-[22px] font-kanit font-normal text-white ml-1 transition-opacity"
+                  :class="isSubmitting ? 'opacity-50' : 'opacity-100'"
+                >
+                  Mensaje
+                </Label>
                 <textarea 
                   id="message"
                   v-model="formData.message" 
-                  class="w-full bg-white/5 border border-white/10 rounded-none p-4 focus:border-[#00FF00] focus:bg-white/10 transition-all outline-none h-40 resize-none text-white placeholder:text-white/10" 
+                  class="w-full bg-white/5 border border-input rounded-none p-4 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[#00FF00]/50 focus-visible:border-[#00FF00] transition-[color,box-shadow] h-40 resize-none text-white text-lg font-serif font-normal placeholder:text-white/20 placeholder:font-serif placeholder:text-[18px] disabled:opacity-50 disabled:cursor-not-allowed" 
                   placeholder="¿En qué puedo ayudarte?"
                   required
+                  :disabled="isSubmitting"
                 ></textarea>
               </div>
 
               <button 
                 type="submit" 
                 :disabled="isSubmitting"
-                class="w-full bg-[#00FF00] text-black p-5 rounded-none text-lg font-bold hover:bg-white transition-all shadow-[0_5px_15px_rgba(0,255,0,0.2)] flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed uppercase"
+                class="w-full bg-[#00FF00] text-black p-5 rounded-none text-lg font-medium hover:bg-white transition-all shadow-[0_5px_15px_rgba(0,255,0,0.1)] flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed uppercase"
               >
                 <span>{{ isSubmitting ? 'Procesando...' : 'Enviar mensaje' }}</span>
                 <Send v-if="!isSubmitting" :size="20" class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

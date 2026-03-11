@@ -25,7 +25,7 @@ import TechSkills from '@/components/about/TechSkills.vue'
           
           <!-- Intro Section -->
           <section class="text-left">
-            <h1 class="text-4xl md:text-5xl font-serif font-bold text-[rgb(255,0,0)] mb-6">Quien Soy</h1>
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-[rgb(255,0,0)] mb-6">Quien soy</h1>
             <div class="font-light text-xl text-white leading-normal max-w-2xl space-y-4">
               <p>Hola, me llamo Ares de verdad. Soy un diseñador versátil y polifacético que experimenta con una gran variedad de estilos y se adapta siempre a lo que pide el cliente. Actualmente estudio Diseño y Tecnologías Creativas en la UPV. <router-link to="/cv" class="text-[rgb(255,0,0)] font-medium hover:text-white transition-colors">Echa un ojo a mi CV.</router-link></p>
               <p>Entre mis ámbitos de trabajo preferidos, se encuentran la cartelería, la fotografía y la programación artística, pero puedo abarcar mucho más.</p>

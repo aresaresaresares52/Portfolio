@@ -23,7 +23,7 @@ import ProjectsCardsEnvelope from '@/components/projects/ProjectCardsEnvelope.vu
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20 pointer-events-none">
           <div class="max-w-2xl pointer-events-none">
             <h2 class="font-serif font-bold text-4xl md:text-5xl text-[rgb(0,255,0)] mb-6">Proyectos</h2>
-            <p class="font-light text-xl text-white">Mis trabajos más destacados</p>
+            <p class="font-light text-xl text-white">Mis trabajos más destacados.</p>
           </div>
         </div>
 
