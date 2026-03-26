@@ -2,11 +2,14 @@
 const posters = [
   "Descartado1_Molinero.Teo_Polo.Ares-01.jpg",
   "Final_Molinero.Teo_Polo.Ares.jpg",
-   "cartel4.jpg",
-  "pamcabeceraredes.jpg",
+   "cartel4.jpg"
 
  
 ];
+
+const getImageUrl = (name: string) => {
+  return new URL(`../../../assets/carteles/${name}`, import.meta.url).href
+}
 
 defineProps<{
   project: {
@@ -32,7 +35,7 @@ defineProps<{
         class="flex-[1_1_calc(33.333%-1rem)] min-w-[250px]"
       >
         <img 
-          :src="`/src/assets/carteles/${poster}`" 
+          :src="getImageUrl(poster)" 
           :alt="poster"
           class="w-full h-auto"
         />

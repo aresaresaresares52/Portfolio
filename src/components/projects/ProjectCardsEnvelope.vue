@@ -26,10 +26,10 @@ const commonHoverClass = "transform scale-70 transition-all duration-500 ease-ou
 // En móviles y tablets la organización es automática en la cuadrícula.
 // ----------------------------------------------------------------------
 const pixelImages: (PixelItem & { project: (typeof projects)[0] })[] = [
-  { id: 1, src: pixel1, top: '28%', left: '-11%', alt: 'Decoración pixel 1', project: projects[0]! },
-  { id: 2, src: pixel2, top: '03%', left: '50%', alt: 'Decoración pixel 2', project: projects[1]! },
-  { id: 3, src: pixel3, top: '47%', left: '59%', alt: 'Decoración pixel 3', project: projects[2]! },
-  { id: 4, src: pixel4, top: '55%', left: '24%', alt: 'Decoración pixel 4', project: projects[3]! },
+  { id: 1, src: pixel1, top: '28%', left: '-11%', alt: 'Decoración pixel 1', project: projects[1]! }, // Fotografía
+  { id: 2, src: pixel2, top: '03%', left: '50%', alt: 'Decoración pixel 2', project: projects[2]! }, // Programación 
+  { id: 3, src: pixel3, top: '47%', left: '59%', alt: 'Decoración pixel 3', project: projects[3]! }, // PAM26
+  { id: 4, src: pixel4, top: '55%', left: '24%', alt: 'Decoración pixel 4', project: projects[4]! }, // Ver más
 ]
 </script>
 
@@ -48,16 +48,16 @@ const pixelImages: (PixelItem & { project: (typeof projects)[0] })[] = [
         '--desktop-left': pixel.left,
       }"
     >
-      <!-- Decoración en píxeles restaurada a su tamaño original -->
+      <!-- Abajo tamaño pixel. Decoración en píxeles reducida aprox 60px solo en móvil (310px vs ~370px original) -->
       <img 
         :src="pixel.src" 
         :alt="pixel.alt" 
-        class="w-auto h-auto max-w-none select-none" 
+        class="w-[510px] md:w-auto h-auto max-w-none select-none" 
       />
       
-      <!-- La tarjeta de proyecto flotando encima, justo en el centro del dibujo -->
+      <!-- abajo tamaño de La tarjeta de proyecto flotando encima, justo en el centro del dibujo -->
       <div class="absolute inset-0 flex items-center justify-center pointer-events-none" v-if="pixel.project">
-        <div class="w-[300px] md:w-[350px] 
+        <div class="w-[360px] md:w-[350px] 
         -translate-y-20 translate-x-35 
         pointer-events-auto shadow-[0_0_20px_rgba(0,255,0,0.2)]">
           <ProjectCard :project="pixel.project" />
@@ -92,8 +92,8 @@ const pixelImages: (PixelItem & { project: (typeof projects)[0] })[] = [
 /* En teléfonos móviles extendidos (<740px), 1 columna con solapamiento elegante */
 @media (max-width: 739px) {
   .pixel-wrapper {
-    margin-top: -20px;
-    margin-bottom: -20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 }
 </style>

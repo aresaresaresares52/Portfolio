@@ -30,7 +30,7 @@ defineProps<{
     <div class="relative z-10 pointer-events-auto">
       <div class="relative flex flex-col justify-center bg-black border-[3px] border-[#00FF00] w-fit overflow-hidden p-6 md:p-8 shadow-2xl">
         <div class="relative z-10 w-full md:pr-8">
-          <h1 class="text-3xl md:text-4xl font-kanit font-bold text-white leading-none break-words whitespace-normal">
+          <h1 class="text-3xl md:text-4xl font-kanit font-medium text-white leading-[0.85] break-words whitespace-normal">
             {{ project.title }}
           </h1>
         </div>

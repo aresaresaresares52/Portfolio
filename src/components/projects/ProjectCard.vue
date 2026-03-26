@@ -20,16 +20,19 @@ defineProps<{
     <!-- Contenido -->
     <div class="relative z-10">
       
-      <!-- Texto al doble de tamaño (4xl en vez de xl), en Kanit y en Medium -->
-      <h3 class="text-3xl md:text-5xl font-kanit font-medium text-white mb-4 md:mb-8">
+      <!-- Título de proyecto con peso regular (font-normal) e interlineado ajustado con leading Class -->
+      <h3 
+        class="max-md:text-[50px] text-4xl md:text-5xl font-kanit font-normal text-white mb-4 md:mb-8 leading-[1.05]"
+      >
         {{ project.title }}
       </h3>
       
-      <!-- El texto ver detalle visible siempre, pero que cambia de color y la flecha se mueve al pasar ratón por la tarjeta -->
-      <span class="inline-flex items-center gap-2 text-white/70 text-sm md:text-base font-light transition-colors group-hover:text-[#00FF00]">
+      <!-- Texto "Ver más" con interlineado ajustado con clase leading -->
+      <span 
+        class="inline-flex items-center gap-2 text-white/70 max-md:text-[18px] text-sm md:text-base font-light transition-colors group-hover:text-[#00FF00] leading-none"
+      >
         Ver más <ArrowRight :size="24" class="group-hover:translate-x-1 transition-transform" />
       </span>
     </div>
   </div>
 </template>
-

@@ -33,6 +33,16 @@ export const projects: Project[] = [
         date: 'Junio 2024'
     },
     {
+        id: 'pam26',
+        title: 'PAM!26',
+        category: 'Proyecto',
+        description: 'Participación en el concurso de la identidad visual de la Muestra de Producciones Artísticas y Multimedia de la UPV (PAM).\n\nEste trabajo fue realizado junto con las compañeras Lucia Li Miralles, Maria José Pineda y Jiayi Li.\nNuestro proyecto fue preseleccionado, pero no resultó elegido',
+        longDescription: '',
+        image: '',
+        technologies: [],
+        date: ''
+    },
+    {
         id: 'all',
         title: 'Ver más proyectos',
         category: 'Explorar',

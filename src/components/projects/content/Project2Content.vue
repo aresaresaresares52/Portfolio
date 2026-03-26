@@ -23,6 +23,10 @@ const stopAutoplayRetrato = () => {
 const stopAutoplayPortadas = () => {
   pluginPortadas.stop()
 }
+
+const getImageUrl = (name: string, folder: string) => {
+  return new URL(`../../../assets/${folder}/${name}`, import.meta.url).href
+}
 </script>
 
 <template>
@@ -43,7 +47,7 @@ const stopAutoplayPortadas = () => {
               <Card class="border-none bg-transparent shadow-none">
                 <CardContent class="p-0 overflow-visible">
                   <img 
-                    :src="`/src/assets/fotografía/${img}`" 
+                    :src="getImageUrl(img, 'fotografía')" 
                     :alt="`Photography ${img}`"
                     class="h-[250px] md:h-[400px] w-auto block object-contain"
                   >
@@ -80,7 +84,7 @@ const stopAutoplayPortadas = () => {
               <Card class="border-none bg-transparent shadow-none">
                 <CardContent class="p-0 overflow-visible">
                   <img 
-                    :src="`/src/assets/fotografía/${img}`" 
+                    :src="getImageUrl(img, 'fotografía')" 
                     :alt="`Photography ${img}`"
                     class="h-[250px] md:h-[400px] w-auto block object-contain"
                   >
@@ -117,7 +121,7 @@ const stopAutoplayPortadas = () => {
               <Card class="border-none bg-transparent shadow-none w-full max-w-[600px]">
                 <CardContent class="p-0 overflow-visible flex justify-center">
                   <img 
-                    :src="`/src/assets/portadas album/${img}`" 
+                    :src="getImageUrl(img, 'portadas album')" 
                     :alt="`Album Cover ${img}`"
                     class="w-full h-auto aspect-square max-h-[300px] md:max-h-[600px] block object-cover"
                   >
