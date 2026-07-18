@@ -26,7 +26,10 @@ defineProps<{
 </script>
 
 <template>
-  <div class="pt-16 translate-y-[10px]">
+  <div class="pt-16 translate-y-[10px] flex flex-col gap-10">
+    <p class="text-[rgb(0,255,0)] font-medium text-[23px] text-left">
+      Estos son algunos de mis mejores trabajos:
+    </p>
     
     <div class="flex flex-wrap gap-6 w-full max-w-6xl">
       <div 

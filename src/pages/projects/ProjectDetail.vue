@@ -4,13 +4,15 @@ import { useRoute } from 'vue-router'
 import { useProjects } from '@/composables/useProjects'
 import BackLink from '@/components/projects/BackLink.vue'
 import VerMasLink from '@/components/projects/VerMasLink.vue'
-import ProjectDetailCard from '@/components/projects/ProjectDetailcard.vue'
+import ProjectDetailCard from '@/components/projects/ProjectDetailCard.vue'
 
 // Importamos los contenidos dinámicos de cada proyecto
 import Project1Content from '@/components/projects/content/Project1Content.vue'
 import Project2Content from '@/components/projects/content/Project2Content.vue'
 import Project3Content from '@/components/projects/content/Project3Content.vue'
 import Project4Content from '@/components/projects/content/Project4Content.vue'
+import Project5Content from '@/components/projects/content/Project5Content.vue'
+import Project6Content from '@/components/projects/content/Project6Content.vue'
 
 const route = useRoute()
 const { getProjectById } = useProjects()
@@ -24,7 +26,9 @@ const projectComponents: Record<string, any> = {
   '1': Project1Content,
   '2': Project2Content,
   '3': Project3Content,
-  'pam26': Project4Content
+  '4': Project4Content,
+  '5': Project5Content,
+  '6': Project6Content
 }
 
 const currentProjectComponent = computed(() => {
@@ -52,9 +56,6 @@ const currentProjectComponent = computed(() => {
 
           <div class="text-left font-light text-xl text-white/80 leading-normal max-w-none translate-y-[70px] flex flex-col gap-10">
             <p class="whitespace-pre-line">{{ project.description }}</p>
-            <p v-if="project.highlight" class="text-[rgb(0,255,0)] font-bold text-[23px]">
-              {{ project.highlight }}
-            </p>
           </div>
 
           <!-- Contenido dinámico específico del proyecto -->

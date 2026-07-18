@@ -23,6 +23,17 @@ export const projects: Project[] = [
         date: 'Marzo 2024'
     },
     {
+        id: '5',
+        title: 'Diseño Web',
+        category: 'Diseño, Programación',
+        description: '',
+        highlight: '',
+        longDescription: '',
+        image: '',
+        technologies: ['Vue 3', 'TypeScript', 'TailwindCSS'],
+        date: 'Julio 2024'
+    },
+    {
         id: '3',
         title: 'Programación artística en Processing',
         category: 'Programación',
@@ -33,14 +44,26 @@ export const projects: Project[] = [
         date: 'Junio 2024'
     },
     {
-        id: 'pam26',
-        title: 'PAM!26',
+        id: '4',
+        title: 'Identidad visual PAM!26',
         category: 'Proyecto',
         description: 'Participación en el concurso de la identidad visual de la Muestra de Producciones Artísticas y Multimedia de la UPV (PAM).\n\nEste trabajo fue realizado junto con las compañeras Lucia Li Miralles, Maria José Pineda y Jiayi Li.\nNuestro proyecto fue preseleccionado, pero no resultó elegido',
+        highlight: '',
         longDescription: '',
         image: '',
         technologies: [],
         date: ''
+    },
+    {
+        id: '6',
+        title: 'Diseño de logotipos',
+        category: 'Diseño',
+        description: 'Colección de diseños de logotipos realizados para diferentes ayuntamientos e instituciones.',
+        highlight: '',
+        longDescription: '',
+        image: '',
+        technologies: ['Illustrator', 'Photoshop'],
+        date: 'Julio 2024'
     },
     {
         id: 'all',

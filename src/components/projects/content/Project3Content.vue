@@ -49,13 +49,6 @@ defineProps<{
     </div>
 
     <!-- Nueva sección: Animaciones -->
-    <div class="mt-24">
-      <SectionTitle title="ANIMACIONES" />
-      <div class="w-full max-w-[600px] aspect-square bg-white/5 border border-white/10 rounded-xl flex items-center justify-center group hover:border-[#00FF00]/30 transition-colors">
-        <span class="font-kanit text-2xl text-white/40 group-hover:text-[#00FF00]/50 transition-colors uppercase tracking-widest">
-          Coming Soon
-        </span>
-      </div>
-    </div>
+    
   </div>
 </template>

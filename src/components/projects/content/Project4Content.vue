@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import cartelpam from '@/assets/PAM!/cartelpam.jpg'
-import cabecerapam from '@/assets/PAM!/cabecerapam.jpg'
-import mockupfacebookpam from '@/assets/PAM!/mockupfacebookpam.png'
-import mockuptriptico from '@/assets/PAM!/mockuptriptico.png'
-import mochupvinilopam from '@/assets/PAM!/mochupvinilopam.jpg'
-import vinilopam from '@/assets/PAM!/vinilopam.jpg'
-import shortpam from '@/assets/PAM!/shortpam.jpg'
-import totebagpam from '@/assets/PAM!/totebagpam.png'
-import post1pam from '@/assets/PAM!/post1pam.jpg'
-import post2pam from '@/assets/PAM!/post2pam.jpg'
-import post3pam from '@/assets/PAM!/post3pam.jpg'
-import post4pam from '@/assets/PAM!/post4pam.jpg'
-import camipam from '@/assets/PAM!/camipam.png' // <-- Ajusta la extensión si es .jpg
+import cartelpam from '@/assets/PAM!/cartelpam.webp'
+import cabecerapam from '@/assets/PAM!/cabecerapam.webp'
+import mockupfacebookpam from '@/assets/PAM!/mockupfacebookpam.webp'
+import mockuptriptico from '@/assets/PAM!/mockuptriptico.webp'
+import mochupvinilopam from '@/assets/PAM!/mochupvinilopam.webp'
+import vinilopam from '@/assets/PAM!/vinilopam.webp'
+import shortpam from '@/assets/PAM!/shortpam.webp'
+import totebagpam from '@/assets/PAM!/totebagpam.webp'
+import post1pam from '@/assets/PAM!/post1pam.webp'
+import post2pam from '@/assets/PAM!/post2pam.webp'
+import post3pam from '@/assets/PAM!/post3pam.webp'
+import post4pam from '@/assets/PAM!/post4pam.webp'
+import camipam from '@/assets/PAM!/camipam.webp'
 
 interface Project {
   id: string | number
@@ -36,9 +36,7 @@ const openImage = (src: string) => {
 <template>
   <div class="flex flex-col gap-8 md:gap-12 animate-in fade-in slide-in-from-bottom-8 duration-1000 w-full mb-12">
     
-    <!-- ============================================== -->
-    <!-- ESCRIBE AQUÍ EL SUBTÍTULO O TEXTO DESCRIPTIVO  -->
-    <!-- ============================================== -->
+
     <div class="flex flex-col items-start gap-4 px-4 w-full">
       <p class="text-white/80 font-light leading-relaxed text-left text-lg md:text-xl">
       </p>
@@ -46,7 +44,7 @@ const openImage = (src: string) => {
       <!-- RECUADRO INFORMATIVO DOBLE CLICK -->
       <div class="border border-white/20 bg-white/5 px-4 py-2 mt-5 self-start md:self-end">
         <p class="text-white/60 text-xs font-serif uppercase tracking-wider text-left md:text-right">
-          Doble click para ver las imágenes a tamaño completo
+          Doble click para ver las imagenes a tamaño completo
         </p>
       </div>
     </div>

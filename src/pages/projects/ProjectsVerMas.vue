@@ -3,8 +3,8 @@ import BackLink from '@/components/projects/BackLink.vue'
 import ProjectCard from '@/components/projects/ProjectCard.vue'
 import { projects } from '@/data/projects'
 
-// Seleccionamos "Cartelería e identidad visual" (primer proyecto en data)
-const extraProject = projects[0]!
+// Seleccionamos los proyectos que van en la sección "ver más"
+const extraProjects = projects.filter(p => p.id === '1' || p.id === '3' || p.id === '6')
 </script>
 
 <template>
@@ -17,9 +17,14 @@ const extraProject = projects[0]!
     <!-- Proyectos Extra -->
     <div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 place-items-start">
       <!-- Envuelto en router-link para navegación y hover interactivo -->
-      <router-link :to="`/projects/${extraProject.id}`" class="block w-full max-w-[400px]">
+      <router-link 
+        v-for="project in extraProjects" 
+        :key="project.id" 
+        :to="`/projects/${project.id}`" 
+        class="block w-full max-w-[400px]"
+      >
         <div class="pointer-events-auto transform hover:-translate-y-2 transition-transform duration-300 shadow-[0_0_20px_rgba(0,255,0,0.1)]">
-          <ProjectCard :project="extraProject" />
+          <ProjectCard :project="project" />
         </div>
       </router-link>
     </div>
