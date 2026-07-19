@@ -58,12 +58,13 @@ export const projects: Project[] = [
         id: '6',
         title: 'Diseño de logotipos',
         category: 'Diseño',
-        description: 'Colección de diseños de logotipos realizados para diferentes ayuntamientos e instituciones.',
+        description: '',
         highlight: '',
         longDescription: '',
         image: '',
         technologies: ['Illustrator', 'Photoshop'],
-        date: 'Julio 2024'
+        date: 'Julio 2024',
+        borderColor: '#cb16e3'
     },
     {
         id: 'all',

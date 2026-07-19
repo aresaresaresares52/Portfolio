@@ -68,11 +68,10 @@ defineProps<{
       </div>
     </div>
 
-    <!-- Además, también he diseñado y desarrollado esta página! -->
     <div class="flex justify-center items-center mt-6">
-      <div class="border-[3px] border-[#00FF00] flex items-center justify-center p-6 md:p-8 text-center shadow-[0_0_30px_rgba(0,255,0,0.15)] bg-black/40 backdrop-blur-sm group relative overflow-hidden max-w-2xl w-full">
-        <div class="absolute inset-0 bg-[#00FF00]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-        <p class="text-xl md:text-2xl font-kanit font-normal text-white/90 tracking-tight leading-tight">
+      <div class="border-[1.5px] border-[#16a0db] flex items-center justify-center p-6 md:p-8 text-center shadow-[0_0_30px_rgba(0,255,0,0.15)] bg-black/40 backdrop-blur-sm group relative overflow-hidden max-w-3xl w-full rounded-md">
+        <div class="absolute inset-0 bg-[#16a0db]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+        <p class="text-xl md:text-2xl font-kanit font-normal text-white/90">
           Además, también he diseñado y desarrollado esta página!
         </p>
       </div>

@@ -9,6 +9,7 @@ export interface Project {
     date: string;
     link?: string;
     highlight?: string;
+    borderColor?: string;
 }
 
 export interface Skill {
