@@ -10,7 +10,8 @@ export const projects: Project[] = [
         longDescription: '',
         image: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1000&auto=format&fit=crop',
         technologies: ['Vue 3', 'TypeScript', 'Node.js', 'PostgreSQL'],
-        date: 'Enero 2024'
+        date: 'Enero 2024',
+        borderColor: '#a8010c'
     },
     {
         id: '2',

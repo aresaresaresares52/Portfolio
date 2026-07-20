@@ -27,7 +27,7 @@ defineProps<{
 
 <template>
   <div class="pt-16 translate-y-[10px] flex flex-col gap-10">
-    <p class="text-[rgb(0,255,0)] font-medium text-[23px] text-left">
+    <p class="text-[rgb(198,0,0)] font-medium text-[23px] text-left">
       Estos son algunos de mis mejores trabajos:
     </p>
     

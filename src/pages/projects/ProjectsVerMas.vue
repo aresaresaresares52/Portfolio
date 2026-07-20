@@ -2,20 +2,31 @@
 import BackLink from '@/components/projects/BackLink.vue'
 import ProjectCard from '@/components/projects/ProjectCard.vue'
 import { projects } from '@/data/projects'
+import fondoVerMas from '@/assets/fondovermas.jpg'
 
 // Seleccionamos los proyectos que van en la sección "ver más"
 const extraProjects = projects.filter(p => p.id === '1' || p.id === '2' || p.id === '3' || p.id === '7')
 </script>
 
 <template>
-  <div class="bg-black text-white min-h-screen flex flex-col p-6 md:p-12 items-center">
+  <div
+    class="relative min-h-screen w-full overflow-hidden bg-black text-white flex flex-col p-6 md:p-12 items-center"
+    :style="{
+      backgroundImage: `url(${fondoVerMas})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }"
+  >
+    <div class="absolute inset-0 bg-black/40" />
+
     <!-- Botón volver -->
-    <nav class="mb-12 w-full max-w-6xl">
+    <nav class="relative z-10 mb-12 w-full max-w-6xl">
       <BackLink />
     </nav>
     
     <!-- Proyectos Extra -->
-    <div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 place-items-start">
+    <div class="relative z-10 w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 place-items-start">
       <!-- Proyectos reales -->
       <router-link 
         v-for="project in extraProjects" 
