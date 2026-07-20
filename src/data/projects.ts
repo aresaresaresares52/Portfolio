@@ -31,7 +31,8 @@ export const projects: Project[] = [
         longDescription: '',
         image: '',
         technologies: ['Vue 3', 'TypeScript', 'TailwindCSS'],
-        date: 'Julio 2024'
+        date: 'Julio 2024',
+        borderColor: '#2909cb'
     },
     {
         id: '3',
@@ -65,6 +66,18 @@ export const projects: Project[] = [
         technologies: ['Illustrator', 'Photoshop'],
         date: 'Julio 2024',
         borderColor: '#cb16e3'
+    },
+    {
+        id: '7',
+        title: 'Maquetación',
+        category: 'Diseño, Maquetación',
+        description:'',
+        highlight: '',
+        longDescription: '',
+        image: '',
+        technologies: ['InDesign', 'Illustrator'],
+        date: 'Julio 2024',
+        borderColor: '#9b9b9b'
     },
     {
         id: 'all',

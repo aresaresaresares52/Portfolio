@@ -70,6 +70,45 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Chrome, Safari, Edge Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+
+/* Show scrollbar thumb only when hover is over the scrollbar area itself */
+::-webkit-scrollbar:hover ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Firefox Custom Scrollbar */
+@supports (scrollbar-width: thin) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  
+  /* Show thumb when page is hovered or interacted with, Firefox doesn't support hover on scrollbar itself directly */
+  html:hover {
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+  }
 }
 
 @layer base {
@@ -79,6 +118,7 @@ html {
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
   }
 
   h1 {

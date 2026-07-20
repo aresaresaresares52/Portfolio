@@ -13,6 +13,7 @@ import Project3Content from '@/components/projects/content/Project3Content.vue'
 import Project4Content from '@/components/projects/content/Project4Content.vue'
 import Project5Content from '@/components/projects/content/Project5Content.vue'
 import Project6Content from '@/components/projects/content/Project6Content.vue'
+import Project7Content from '@/components/projects/content/Project7Content.vue'
 
 const route = useRoute()
 const { getProjectById } = useProjects()
@@ -28,7 +29,8 @@ const projectComponents: Record<string, any> = {
   '3': Project3Content,
   '4': Project4Content,
   '5': Project5Content,
-  '6': Project6Content
+  '6': Project6Content,
+  '7': Project7Content
 }
 
 const currentProjectComponent = computed(() => {
@@ -54,7 +56,7 @@ const currentProjectComponent = computed(() => {
             <ProjectDetailCard :project="project" />
           </header>
 
-          <div class="text-left font-light text-xl text-white/80 leading-normal max-w-none translate-y-[70px] flex flex-col gap-10">
+          <div class="text-left font-light text-xl text-white/90 leading-normal max-w-none translate-y-[70px] flex flex-col gap-10">
             <p class="whitespace-pre-line">{{ project.description }}</p>
           </div>
 

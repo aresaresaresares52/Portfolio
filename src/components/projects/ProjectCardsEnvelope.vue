@@ -28,7 +28,7 @@ const commonHoverClass = "transform scale-70 transition-all duration-500 ease-ou
 const pixelImages: (PixelItem & { project: (typeof projects)[0] })[] = [
   { id: 1, src: pixel1, top: '28%', left: '-11%', alt: 'Decoración pixel 1', project: projects.find(p => p.id === '4')! }, // PAM26
   { id: 2, src: pixel2, top: '03%', left: '50%', alt: 'Decoración pixel 2', project: projects.find(p => p.id === '5')! }, // Diseño Web
-  { id: 3, src: pixel3, top: '47%', left: '59%', alt: 'Decoración pixel 3', project: projects.find(p => p.id === '2')! }, // foto
+  { id: 3, src: pixel3, top: '47%', left: '59%', alt: 'Decoración pixel 3', project: projects.find(p => p.id === '6')! }, // logos
   { id: 4, src: pixel4, top: '55%', left: '24%', alt: 'Decoración pixel 4', project: projects.find(p => p.id === 'all')! }, // Ver más
 ]
 </script>

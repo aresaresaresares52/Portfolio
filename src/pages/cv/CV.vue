@@ -114,6 +114,7 @@ const handlePrint = () => {
             </div>
 
             <div class="space-y-10 pl-4 border-l-2 border-white/5 ml-5">
+              <!-- Inglés -->
               <div class="relative">
                 <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-none bg-white border-2 border-gray-300"></div>
                 <div>
@@ -122,14 +123,44 @@ const handlePrint = () => {
                     <a 
                       :href="certificateC1" 
                       target="_blank"
-                      class="px-3 py-1 bg-white/10 text-white/75 text-xs font-serif font-normal rounded-none hover:bg-white/20 transition-colors cursor-pointer border border-[rgb(255,0,0)]/30 max-md:border-white/10 max-md:bg-white/5"
+                      class="px-3 py-1 bg-white/10 text-white/75 text-xs font-serif font-normal rounded-none border border-white/50 hover:border-white/90 transition-colors cursor-pointer max-md:border-white/10 max-md:bg-white/5"
                     >
                       Certificado Oficial
                     </a>
                   </div>
                   <p class="text-white/75 font-normal mb-3">Escuela Oficial de Idiomas (EOI)</p>
                   <p class="text-white/40 leading-relaxed font-light">
-                    Capacidad para comprender y producir textos complejos, así como expresarme de forma fluida y espontánea.
+                    Capacidad para comprender, producir y traducir textos complejos, así como expresarme de forma fluida y espontánea.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Valenciano -->
+              <div class="relative">
+                <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-none bg-white border-2 border-gray-300"></div>
+                <div>
+                  <div class="flex flex-row justify-between items-center mb-2 gap-1 w-full">
+                    <h3 class="text-xl font-normal text-white">Valenciano: Nivel C1</h3>
+                    <span 
+                      class="px-3 py-1 bg-white/10 text-white/75 text-xs font-serif font-normal rounded-none transition-colors cursor-pointer max-md:border-white/10 max-md:bg-white/5 select-none"
+                    >
+                      Certificado Oficial
+                    </span>
+                  </div>
+                  <p class="text-white/75 font-normal mb-3">Hablante nativo</p>
+                </div>
+              </div>
+
+              <!-- Chino -->
+              <div class="relative">
+                <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-none bg-white border-2 border-gray-300"></div>
+                <div>
+                  <div class="flex flex-row justify-between items-center mb-2 gap-1 w-full">
+                    <h3 class="text-xl font-normal text-white">Chino: Nivel HSK1</h3>
+                  </div>
+                  <p class="text-white/75 font-normal mb-3">Sin certificado oficial</p>
+                  <p class="text-white/40 leading-relaxed font-light">
+                    Actualmente estudiando para obtener el certificado HSK2.
                   </p>
                 </div>
               </div>

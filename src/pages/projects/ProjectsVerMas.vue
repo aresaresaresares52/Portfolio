@@ -4,7 +4,7 @@ import ProjectCard from '@/components/projects/ProjectCard.vue'
 import { projects } from '@/data/projects'
 
 // Seleccionamos los proyectos que van en la sección "ver más"
-const extraProjects = projects.filter(p => p.id === '1' || p.id === '3' || p.id === '6')
+const extraProjects = projects.filter(p => p.id === '1' || p.id === '2' || p.id === '3' || p.id === '7')
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const extraProjects = projects.filter(p => p.id === '1' || p.id === '3' || p.id 
     
     <!-- Proyectos Extra -->
     <div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 place-items-start">
-      <!-- Envuelto en router-link para navegación y hover interactivo -->
+      <!-- Proyectos reales -->
       <router-link 
         v-for="project in extraProjects" 
         :key="project.id" 
@@ -27,17 +27,31 @@ const extraProjects = projects.filter(p => p.id === '1' || p.id === '3' || p.id 
           <ProjectCard :project="project" />
         </div>
       </router-link>
-    </div>
 
-    <!-- Recuadro principal que el usuario mantendrá para futuros textos -->
-    <div class="flex-1 flex w-full max-w-6xl p-4 justify-center items-start mt-8">
-      <main class="border-[3px] border-[#00FF00] flex items-center justify-center p-3 md:p-6 text-center shadow-[0_0_30px_rgba(0,255,0,0.1)] group relative overflow-hidden max-w-2xl w-full">
-        <div class="absolute inset-0 bg-[#00FF00]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-        
-        <h1 class="text-xl md:text-2xl lg:text-3xl font-kanit font-normal text-white/70 tracking-tight leading-tight px-2">
-          Hmmm que poquita cosa... Pero tengo 20 años y me queda mucho por delante. Seguiré trabajando duro y mejorando mis habilidades en el proceso. ¡Vuelve a visitarme! :D
-        </h1>
-      </main>
+      <!-- Coming Soon 1 -->
+      <div 
+        class="relative flex flex-col justify-end bg-black border-[3px] border-[#00FF00]/40 aspect-[5/4] overflow-hidden p-5 md:p-8 w-full max-w-[400px] select-none opacity-50"
+      >
+        <div class="relative z-10">
+          <h3 class="max-md:text-[50px] text-4xl md:text-5xl font-kanit font-normal text-white/60 mb-4 md:mb-8 leading-[1.05]">
+            Coming soon
+          </h3>
+        </div>
+      </div>
+
+      <!-- Coming Soon 2 -->
+      <div 
+        class="relative flex flex-col justify-end bg-black border-[3px] border-[#00FF00]/40 aspect-[5/4] overflow-hidden p-5 md:p-8 w-full max-w-[400px] select-none opacity-50"
+      >
+        <div class="relative z-10">
+          <h3 class="max-md:text-[50px] text-4xl md:text-5xl font-kanit font-normal text-white/60 mb-4 md:mb-8 leading-[1.05]">
+            Coming soon
+          </h3>
+        </div>
+      </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+</style>

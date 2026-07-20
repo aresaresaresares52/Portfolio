@@ -35,10 +35,10 @@ defineProps<{
         href="https://esclattrans.netlify.app/#/" 
         target="_blank" 
         rel="noopener noreferrer"
-        class="flex w-full justify-center gap-2 px-6 py-6 border border-[#00FF00] hover:bg-[#00FF00]/10 text-xl  font-semibold font-kanit font-normal uppercase tracking-wider text-sm transition-all duration-300 shadow-[0_0_15px_rgba(0,255,0,0.1)] hover:shadow-[0_0_25px_rgba(0,255,0,0.3)] rounded-md"
+        class="flex w-full justify-center gap-2 px-6 py-6 border border-[#16a0db] hover:bg-[#16a0db]/10 text-xl  font-semibold font-kanit font-normal uppercase tracking-wider text-sm transition-all duration-300 shadow-[0_0_15px_rgba(0,0,255,0.1)] hover:shadow-[0_0_25px_rgba(0,0,255,0.3)] rounded-md"
       >
         <span class="text-white">Visitar sitio</span>
-  <span class="text-[#00FF00]">Web</span>
+  <span class="text-[#16a0db]">Web</span>
       </a>
     </div>
 

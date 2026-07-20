@@ -38,7 +38,7 @@ const openImage = (src: string) => {
     
 
     <div class="flex flex-col items-start gap-4 px-4 w-full">
-      <p class="text-white/80 font-light leading-relaxed text-left text-lg md:text-xl">
+      <p class="text-white font-light leading-relaxed text-left text-lg md:text-xl">
       </p>
       
       <!-- RECUADRO INFORMATIVO DOBLE CLICK -->
